@@ -1,0 +1,19 @@
+digraph
+{
+	node [shape=box]
+
+	program -> function;
+
+	function -> Return_type;
+	function -> "(";
+	function -> ")";
+	function -> "{";
+
+	function -> statement;
+
+	function -> "}";
+
+	statement -> Return;
+	statement -> Integer;
+	statement -> ";";
+}

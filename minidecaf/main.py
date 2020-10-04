@@ -41,4 +41,6 @@ def main():
     parser._errHandler = BailErrorStrategy()  # 设置错误处理
     tree = parser.program()  # 取得一棵以 program 为根的 AST
     visitor = EvalVisitor()
-    print(IR2asm(tree.accept(visitor)))
+    IRcode = tree.accept(visitor)
+    # print(IRcode)
+    print(IR2asm(IRcode))

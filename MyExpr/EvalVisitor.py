@@ -18,14 +18,12 @@ class EvalVisitor(MyExprVisitor):
         functionIdent = ctx.Identifier().getText()
         if functionIdent != 'main':
             raise Exception('Not Main')
-        string = f"""
+        return f"""
     {functionIdent}:
-        """
-        return string + ctx.statement().accept(self)
+        """ + ctx.statement().accept(self)
 
     # Visit a parse tree produced by MyExprParser#statement.
     def visitStatement(self, ctx: MyExprParser.StatementContext):
-
         return ctx.expression().accept(self) + "RET\n"
 
     # Visit a parse tree produced by MyExprParser#expression.
