@@ -219,7 +219,7 @@ class MyExprParser (Parser):
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 22
-            print('\nMyExprParser.T__0\n')
+            # print('\nMyExprParser.T__0\n')
             self.match(MyExprParser.T__0)
         except RecognitionException as re:
             localctx.exception = re

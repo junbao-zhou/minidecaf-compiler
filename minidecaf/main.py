@@ -18,7 +18,9 @@ from MyExpr.EvalVisitor import EvalVisitor
 
 
 def main():
-    input = InputStream(sys.stdin.read())
+    infile = sys.argv[1]
+    file_test = open(infile, 'r').read()
+    input = InputStream(file_test)
     lexer = MyExprLexer(input)
     tokens = CommonTokenStream(lexer)
     parser = MyExprParser(tokens)
