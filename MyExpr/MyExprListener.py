@@ -62,5 +62,14 @@ class MyExprListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by MyExprParser#integer.
+    def enterInteger(self, ctx:MyExprParser.IntegerContext):
+        pass
+
+    # Exit a parse tree produced by MyExprParser#integer.
+    def exitInteger(self, ctx:MyExprParser.IntegerContext):
+        pass
+
+
 
 del MyExprParser

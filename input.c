@@ -1,3 +1,5 @@
 int main() {
-    return 10000;
+    return 0;
 }
+
+

@@ -101,4 +101,9 @@ Exception: syntax error, Return expected but Int found
 
 ## Part2 构建词法语法分析工具
 
-我选用的实现方式是 `python` + `antlr4`。
+### 实现方式
+
+我所使用的词法语法分析工具的实现方式是 `python` + `antlr4`。系统环境为 `Ubuntu(wsl)` 。
+
+### 词法分析
+

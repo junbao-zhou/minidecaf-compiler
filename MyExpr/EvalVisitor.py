@@ -1,3 +1,4 @@
+import sys
 from .MyExprParser import MyExprParser
 from .MyExprVisitor import MyExprVisitor
 
@@ -30,5 +31,11 @@ class EvalVisitor(MyExprVisitor):
 
     # Visit a parse tree produced by MyExprParser#expression.
     def visitExpression(self, ctx: MyExprParser.ExpressionContext):
+        return ctx.integer().accept(self)
 
-        return ctx.Integer().getText()
+    # Visit a parse tree produced by MyExprParser#integer.
+    def visitInteger(self, ctx: MyExprParser.IntegerContext):
+        i = int(ctx.Integer().getText())
+        if i > 2**31 - 1:
+            raise Exception('int too large')
+        return str(i)

@@ -39,5 +39,10 @@ class MyExprVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by MyExprParser#integer.
+    def visitInteger(self, ctx:MyExprParser.IntegerContext):
+        return self.visitChildren(ctx)
+
+
 
 del MyExprParser
