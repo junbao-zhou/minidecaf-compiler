@@ -1,8 +1,12 @@
 # 实验报告 - step1
 
-<center><font face='KaiTi'>无83 &ensp; 周君宝 &ensp; 2018011106 </font></center>
+无83 &ensp; 周君宝 &ensp; 2018011106
 
-## part1  词法分析、语法分析、目标代码生成
+## Part1  词法分析、语法分析、目标代码生成
+
+### 实验目的
+
+阅读 `minilexer` 和 `miniparser` 的代码实现，理解词法分析和语法分析的流程。学会使用 `minilexer` 和 `minipaser` ，通过控制输入得到自己想要的 `token` 流和语法树。
 
 ### 1. 修改 `lex` 输入使 `minilexer` 报错
 
@@ -93,3 +97,6 @@ Exception: syntax error, Return expected but Int found
 在 rsic-v 中，一共有 2 个寄存器用于储存函数返回值，分别是寄存器 `x10 / a0` 和 `x11 / a1`。
 
 
+## Part2 构建词法语法分析工具
+
+我选用的实现方式是 `python` + `antlr4`。

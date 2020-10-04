@@ -19,10 +19,11 @@ public class MyExprParser extends Parser {
 		T__0=1, T__1=2, Lparen=3, Rparen=4, Lbrace=5, Rbrace=6, Semicolon=7, Add=8, 
 		Sub=9, Mul=10, Div=11, Integer=12, Identifier=13, Whitespace=14;
 	public static final int
-		RULE_program = 0, RULE_function = 1, RULE_statement = 2, RULE_expression = 3;
+		RULE_program = 0, RULE_function = 1, RULE_int_type = 2, RULE_statement = 3, 
+		RULE_ret = 4, RULE_expression = 5;
 	private static String[] makeRuleNames() {
 		return new String[] {
-			"program", "function", "statement", "expression"
+			"program", "function", "int_type", "statement", "ret", "expression"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -107,7 +108,7 @@ public class MyExprParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(8);
+			setState(12);
 			function();
 			}
 		}
@@ -123,6 +124,9 @@ public class MyExprParser extends Parser {
 	}
 
 	public static class FunctionContext extends ParserRuleContext {
+		public Int_typeContext int_type() {
+			return getRuleContext(Int_typeContext.class,0);
+		}
 		public TerminalNode Identifier() { return getToken(MyExprParser.Identifier, 0); }
 		public TerminalNode Lparen() { return getToken(MyExprParser.Lparen, 0); }
 		public TerminalNode Rparen() { return getToken(MyExprParser.Rparen, 0); }
@@ -143,19 +147,19 @@ public class MyExprParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(10);
-			match(T__0);
-			setState(11);
-			match(Identifier);
-			setState(12);
-			match(Lparen);
-			setState(13);
-			match(Rparen);
 			setState(14);
-			match(Lbrace);
+			int_type();
 			setState(15);
-			statement();
+			match(Identifier);
 			setState(16);
+			match(Lparen);
+			setState(17);
+			match(Rparen);
+			setState(18);
+			match(Lbrace);
+			setState(19);
+			statement();
+			setState(20);
 			match(Rbrace);
 			}
 		}
@@ -170,7 +174,38 @@ public class MyExprParser extends Parser {
 		return _localctx;
 	}
 
+	public static class Int_typeContext extends ParserRuleContext {
+		public Int_typeContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_int_type; }
+	}
+
+	public final Int_typeContext int_type() throws RecognitionException {
+		Int_typeContext _localctx = new Int_typeContext(_ctx, getState());
+		enterRule(_localctx, 4, RULE_int_type);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(22);
+			match(T__0);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
 	public static class StatementContext extends ParserRuleContext {
+		public RetContext ret() {
+			return getRuleContext(RetContext.class,0);
+		}
 		public ExpressionContext expression() {
 			return getRuleContext(ExpressionContext.class,0);
 		}
@@ -183,16 +218,44 @@ public class MyExprParser extends Parser {
 
 	public final StatementContext statement() throws RecognitionException {
 		StatementContext _localctx = new StatementContext(_ctx, getState());
-		enterRule(_localctx, 4, RULE_statement);
+		enterRule(_localctx, 6, RULE_statement);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(18);
-			match(T__1);
-			setState(19);
+			setState(24);
+			ret();
+			setState(25);
 			expression();
-			setState(20);
+			setState(26);
 			match(Semicolon);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class RetContext extends ParserRuleContext {
+		public RetContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_ret; }
+	}
+
+	public final RetContext ret() throws RecognitionException {
+		RetContext _localctx = new RetContext(_ctx, getState());
+		enterRule(_localctx, 8, RULE_ret);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(28);
+			match(T__1);
 			}
 		}
 		catch (RecognitionException re) {
@@ -216,11 +279,11 @@ public class MyExprParser extends Parser {
 
 	public final ExpressionContext expression() throws RecognitionException {
 		ExpressionContext _localctx = new ExpressionContext(_ctx, getState());
-		enterRule(_localctx, 6, RULE_expression);
+		enterRule(_localctx, 10, RULE_expression);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(22);
+			setState(30);
 			match(Integer);
 			}
 		}
@@ -236,13 +299,15 @@ public class MyExprParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\20\33\4\2\t\2\4\3"+
-		"\t\3\4\4\t\4\4\5\t\5\3\2\3\2\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\4\3\4\3"+
-		"\4\3\4\3\5\3\5\3\5\2\2\6\2\4\6\b\2\2\2\26\2\n\3\2\2\2\4\f\3\2\2\2\6\24"+
-		"\3\2\2\2\b\30\3\2\2\2\n\13\5\4\3\2\13\3\3\2\2\2\f\r\7\3\2\2\r\16\7\17"+
-		"\2\2\16\17\7\5\2\2\17\20\7\6\2\2\20\21\7\7\2\2\21\22\5\6\4\2\22\23\7\b"+
-		"\2\2\23\5\3\2\2\2\24\25\7\4\2\2\25\26\5\b\5\2\26\27\7\t\2\2\27\7\3\2\2"+
-		"\2\30\31\7\16\2\2\31\t\3\2\2\2\2";
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\20#\4\2\t\2\4\3\t"+
+		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\3\2\3\2\3\3\3\3\3\3\3\3\3\3\3\3\3\3"+
+		"\3\3\3\4\3\4\3\5\3\5\3\5\3\5\3\6\3\6\3\7\3\7\3\7\2\2\b\2\4\6\b\n\f\2\2"+
+		"\2\34\2\16\3\2\2\2\4\20\3\2\2\2\6\30\3\2\2\2\b\32\3\2\2\2\n\36\3\2\2\2"+
+		"\f \3\2\2\2\16\17\5\4\3\2\17\3\3\2\2\2\20\21\5\6\4\2\21\22\7\17\2\2\22"+
+		"\23\7\5\2\2\23\24\7\6\2\2\24\25\7\7\2\2\25\26\5\b\5\2\26\27\7\b\2\2\27"+
+		"\5\3\2\2\2\30\31\7\3\2\2\31\7\3\2\2\2\32\33\5\n\6\2\33\34\5\f\7\2\34\35"+
+		"\7\t\2\2\35\t\3\2\2\2\36\37\7\4\2\2\37\13\3\2\2\2 !\7\16\2\2!\r\3\2\2"+
+		"\2\2";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

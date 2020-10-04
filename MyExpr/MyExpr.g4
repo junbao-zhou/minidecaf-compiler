@@ -4,8 +4,12 @@ import MyExprLex;
 
 program: function;
 function:
-	'int' Identifier Lparen Rparen Lbrace statement Rbrace;
+	int_type Identifier Lparen Rparen Lbrace statement Rbrace;
 
-statement: 'return' expression ';';
+int_type: 'int';
+
+statement: ret expression ';';
+
+ret: 'return';
 
 expression: Integer;
