@@ -4,9 +4,9 @@ from antlr4 import *
 from io import StringIO
 import sys
 if sys.version_info[1] > 5:
-	from typing import TextIO
+    from typing import TextIO
 else:
-	from typing.io import TextIO
+    from typing.io import TextIO
 
 
 def serializedATN():
@@ -25,22 +25,22 @@ def serializedATN():
         return buf.getvalue()
 
 
-class MyExprParser ( Parser ):
+class MyExprParser (Parser):
 
     grammarFileName = "MyExpr.g4"
 
     atn = ATNDeserializer().deserialize(serializedATN())
 
-    decisionsToDFA = [ DFA(ds, i) for i, ds in enumerate(atn.decisionToState) ]
+    decisionsToDFA = [DFA(ds, i) for i, ds in enumerate(atn.decisionToState)]
 
     sharedContextCache = PredictionContextCache()
 
-    literalNames = [ "<INVALID>", "'int'", "'return'", "'('", "')'", "'{'", 
-                     "'}'", "';'", "'+'", "'-'", "'*'", "'/'" ]
+    literalNames = ["<INVALID>", "'int'", "'return'", "'('", "')'", "'{'",
+                    "'}'", "';'", "'+'", "'-'", "'*'", "'/'"]
 
-    symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "Lparen", "Rparen", 
-                      "Lbrace", "Rbrace", "Semicolon", "Add", "Sub", "Mul", 
-                      "Div", "Integer", "Identifier", "Whitespace" ]
+    symbolicNames = ["<INVALID>", "<INVALID>", "<INVALID>", "Lparen", "Rparen",
+                     "Lbrace", "Rbrace", "Semicolon", "Add", "Sub", "Mul",
+                     "Div", "Integer", "Identifier", "Whitespace"]
 
     RULE_program = 0
     RULE_function = 1
@@ -49,63 +49,57 @@ class MyExprParser ( Parser ):
     RULE_ret = 4
     RULE_expression = 5
 
-    ruleNames =  [ "program", "function", "int_type", "statement", "ret", 
-                   "expression" ]
+    ruleNames = ["program", "function", "int_type", "statement", "ret",
+                 "expression"]
 
     EOF = Token.EOF
-    T__0=1
-    T__1=2
-    Lparen=3
-    Rparen=4
-    Lbrace=5
-    Rbrace=6
-    Semicolon=7
-    Add=8
-    Sub=9
-    Mul=10
-    Div=11
-    Integer=12
-    Identifier=13
-    Whitespace=14
+    T__0 = 1
+    T__1 = 2
+    Lparen = 3
+    Rparen = 4
+    Lbrace = 5
+    Rbrace = 6
+    Semicolon = 7
+    Add = 8
+    Sub = 9
+    Mul = 10
+    Div = 11
+    Integer = 12
+    Identifier = 13
+    Whitespace = 14
 
-    def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
+    def __init__(self, input: TokenStream, output: TextIO = sys.stdout):
         super().__init__(input, output)
         self.checkVersion("4.8")
-        self._interp = ParserATNSimulator(self, self.atn, self.decisionsToDFA, self.sharedContextCache)
+        self._interp = ParserATNSimulator(
+            self, self.atn, self.decisionsToDFA, self.sharedContextCache)
         self._predicates = None
-
-
-
 
     class ProgramContext(ParserRuleContext):
 
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(self, parser, parent: ParserRuleContext = None, invokingState: int = -1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
         def function(self):
-            return self.getTypedRuleContext(MyExprParser.FunctionContext,0)
-
+            return self.getTypedRuleContext(MyExprParser.FunctionContext, 0)
 
         def getRuleIndex(self):
             return MyExprParser.RULE_program
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterProgram" ):
+        def enterRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "enterProgram"):
                 listener.enterProgram(self)
 
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitProgram" ):
+        def exitRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "exitProgram"):
                 listener.exitProgram(self)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitProgram" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitProgram"):
                 return visitor.visitProgram(self)
             else:
                 return visitor.visitChildren(self)
-
-
-
 
     def program(self):
 
@@ -123,16 +117,14 @@ class MyExprParser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class FunctionContext(ParserRuleContext):
 
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(self, parser, parent: ParserRuleContext = None, invokingState: int = -1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
         def int_type(self):
-            return self.getTypedRuleContext(MyExprParser.Int_typeContext,0)
-
+            return self.getTypedRuleContext(MyExprParser.Int_typeContext, 0)
 
         def Identifier(self):
             return self.getToken(MyExprParser.Identifier, 0)
@@ -147,8 +139,7 @@ class MyExprParser ( Parser ):
             return self.getToken(MyExprParser.Lbrace, 0)
 
         def statement(self):
-            return self.getTypedRuleContext(MyExprParser.StatementContext,0)
-
+            return self.getTypedRuleContext(MyExprParser.StatementContext, 0)
 
         def Rbrace(self):
             return self.getToken(MyExprParser.Rbrace, 0)
@@ -156,22 +147,19 @@ class MyExprParser ( Parser ):
         def getRuleIndex(self):
             return MyExprParser.RULE_function
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterFunction" ):
+        def enterRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "enterFunction"):
                 listener.enterFunction(self)
 
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitFunction" ):
+        def exitRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "exitFunction"):
                 listener.exitFunction(self)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitFunction" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitFunction"):
                 return visitor.visitFunction(self)
             else:
                 return visitor.visitChildren(self)
-
-
-
 
     def function(self):
 
@@ -201,33 +189,28 @@ class MyExprParser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class Int_typeContext(ParserRuleContext):
 
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(self, parser, parent: ParserRuleContext = None, invokingState: int = -1):
             super().__init__(parent, invokingState)
             self.parser = parser
-
 
         def getRuleIndex(self):
             return MyExprParser.RULE_int_type
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterInt_type" ):
+        def enterRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "enterInt_type"):
                 listener.enterInt_type(self)
 
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitInt_type" ):
+        def exitRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "exitInt_type"):
                 listener.exitInt_type(self)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitInt_type" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitInt_type"):
                 return visitor.visitInt_type(self)
             else:
                 return visitor.visitChildren(self)
-
-
-
 
     def int_type(self):
 
@@ -236,6 +219,7 @@ class MyExprParser ( Parser ):
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 22
+            print('\nMyExprParser.T__0\n')
             self.match(MyExprParser.T__0)
         except RecognitionException as re:
             localctx.exception = re
@@ -245,20 +229,17 @@ class MyExprParser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class StatementContext(ParserRuleContext):
 
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(self, parser, parent: ParserRuleContext = None, invokingState: int = -1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
         def ret(self):
-            return self.getTypedRuleContext(MyExprParser.RetContext,0)
-
+            return self.getTypedRuleContext(MyExprParser.RetContext, 0)
 
         def expression(self):
-            return self.getTypedRuleContext(MyExprParser.ExpressionContext,0)
-
+            return self.getTypedRuleContext(MyExprParser.ExpressionContext, 0)
 
         def Semicolon(self):
             return self.getToken(MyExprParser.Semicolon, 0)
@@ -266,22 +247,19 @@ class MyExprParser ( Parser ):
         def getRuleIndex(self):
             return MyExprParser.RULE_statement
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterStatement" ):
+        def enterRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "enterStatement"):
                 listener.enterStatement(self)
 
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitStatement" ):
+        def exitRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "exitStatement"):
                 listener.exitStatement(self)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitStatement" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitStatement"):
                 return visitor.visitStatement(self)
             else:
                 return visitor.visitChildren(self)
-
-
-
 
     def statement(self):
 
@@ -303,33 +281,28 @@ class MyExprParser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class RetContext(ParserRuleContext):
 
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(self, parser, parent: ParserRuleContext = None, invokingState: int = -1):
             super().__init__(parent, invokingState)
             self.parser = parser
-
 
         def getRuleIndex(self):
             return MyExprParser.RULE_ret
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterRet" ):
+        def enterRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "enterRet"):
                 listener.enterRet(self)
 
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitRet" ):
+        def exitRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "exitRet"):
                 listener.exitRet(self)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitRet" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitRet"):
                 return visitor.visitRet(self)
             else:
                 return visitor.visitChildren(self)
-
-
-
 
     def ret(self):
 
@@ -347,10 +320,9 @@ class MyExprParser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class ExpressionContext(ParserRuleContext):
 
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(self, parser, parent: ParserRuleContext = None, invokingState: int = -1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
@@ -360,22 +332,19 @@ class MyExprParser ( Parser ):
         def getRuleIndex(self):
             return MyExprParser.RULE_expression
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterExpression" ):
+        def enterRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "enterExpression"):
                 listener.enterExpression(self)
 
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitExpression" ):
+        def exitRule(self, listener: ParseTreeListener):
+            if hasattr(listener, "exitExpression"):
                 listener.exitExpression(self)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitExpression" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitExpression"):
                 return visitor.visitExpression(self)
             else:
                 return visitor.visitChildren(self)
-
-
-
 
     def expression(self):
 
@@ -392,8 +361,3 @@ class MyExprParser ( Parser ):
         finally:
             self.exitRule()
         return localctx
-
-
-
-
-

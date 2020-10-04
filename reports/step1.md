@@ -6,7 +6,9 @@
 
 ### 实验目的
 
-阅读 `minilexer` 和 `miniparser` 的代码实现，理解词法分析和语法分析的流程。学会使用 `minilexer` 和 `minipaser` ，通过控制输入得到自己想要的 `token` 流和语法树。
+阅读 `minilexer` 和 `miniparser` 的代码实现，理解词法分析和语法分析的流程。
+
+学会使用 `minilexer` 和 `minipaser` ，通过控制输入得到自己想要的 `token` 流和语法树。
 
 ### 1. 修改 `lex` 输入使 `minilexer` 报错
 
