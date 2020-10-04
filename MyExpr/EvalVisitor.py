@@ -26,7 +26,7 @@ class EvalVisitor(MyExprVisitor):
     # Visit a parse tree produced by MyExprParser#statement.
     def visitStatement(self, ctx: MyExprParser.StatementContext):
 
-        return "li  a0  " + ctx.expression().accept(self)
+        return "li  a0  ,   " + ctx.expression().accept(self)
 
     # Visit a parse tree produced by MyExprParser#expression.
     def visitExpression(self, ctx: MyExprParser.ExpressionContext):
