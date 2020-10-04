@@ -107,3 +107,6 @@ Exception: syntax error, Return expected but Int found
 
 ### 词法分析
 
+对于一个最简单的 `minidecaf` 程序来说，它的词法单元是十分有限的。在本实验中，可能出现的词法单元只有如下几种：
+
+|||

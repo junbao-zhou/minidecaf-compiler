@@ -21,13 +21,12 @@ class EvalVisitor(MyExprVisitor):
         string = f"""
     {functionIdent}:
         """
-        return string + ctx.statement().accept(self) + """
-        ret"""
+        return string + ctx.statement().accept(self)
 
     # Visit a parse tree produced by MyExprParser#statement.
     def visitStatement(self, ctx: MyExprParser.StatementContext):
 
-        return "li  a0  ,   " + ctx.expression().accept(self)
+        return ctx.expression().accept(self) + "RET\n"
 
     # Visit a parse tree produced by MyExprParser#expression.
     def visitExpression(self, ctx: MyExprParser.ExpressionContext):
@@ -38,4 +37,4 @@ class EvalVisitor(MyExprVisitor):
         i = int(ctx.Integer().getText())
         if i > 2**31 - 1:
             raise Exception('int too large')
-        return str(i)
+        return "PUSH " + str(i) + "\n"
