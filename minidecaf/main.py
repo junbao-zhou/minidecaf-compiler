@@ -12,29 +12,26 @@
 
 import sys
 import re
+import argparse
 from antlr4 import *
 from MyExpr.MyExprLexer import MyExprLexer
 from MyExpr.MyExprParser import MyExprParser
 from MyExpr.EvalVisitor import EvalVisitor
 
+from IR2asm.IR2asmLexer import IR2asmLexer
+from IR2asm.IR2asmParser import IR2asmParser
+from IR2asm.IR2asmEvalVisitor import IR2asmEvalVisitor
 
-def IR2asm(input: str):
-    output = re.sub(
-        r"PUSH ([0-9]+)",
-        lambda m: (m.group(0).replace(
-            "PUSH", "addi sp, sp, -4  \n\tli t1 , ")) + "\n\tsw t1, 0(sp)",
-        input
-    )
-
-    output = output.replace(
-        "RET", "\tlw a0, 0(sp)  \n\taddi sp, sp, 4  \n\tjr ra")
-    return output
+parser = argparse.ArgumentParser(
+    description='Minidecaf Compiler by Bowman Chow')
+parser.add_argument('file', help='input file path')
+args = parser.parse_args()
 
 
 def main():
-    infile = sys.argv[1]
-    file_test = open(infile, 'r').read()
-    input = InputStream(file_test)
+    infile = args.file
+    file_string = open(infile, 'r').read()
+    input = InputStream(file_string)
     lexer = MyExprLexer(input)
     tokens = CommonTokenStream(lexer)
     parser = MyExprParser(tokens)
@@ -43,4 +40,14 @@ def main():
     visitor = EvalVisitor()
     IRcode = tree.accept(visitor)
     # print(IRcode)
-    print(IR2asm(IRcode))
+
+    input = InputStream(IRcode)
+    lexer = IR2asmLexer(input)
+    tokens = CommonTokenStream(lexer)
+    parser = IR2asmParser(tokens)
+    parser._errHandler = BailErrorStrategy()  # 设置错误处理
+    tree = parser.program()  # 取得一棵以 program 为根的 AST
+    visitor = IR2asmEvalVisitor()
+    asm = tree.accept(visitor)
+    print(asm)
+    # print(IR2asm(IRcode))

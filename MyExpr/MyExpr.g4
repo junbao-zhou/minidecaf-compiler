@@ -2,16 +2,22 @@ grammar MyExpr;
 
 import MyExprLex;
 
-program: function;
-function:
-	int_type Identifier Lparen Rparen Lbrace statement Rbrace EOF;
+program: main_fun;
+main_fun:
+	int_type 'main' '(' parameter* ')' '{' statement* '}' EOF;
 
 int_type: 'int';
 
-statement: ret expression ';';
+statement: return_stat;
 
-ret: 'return';
+return_stat: 'return' expression ';';
 
-expression: integer;
+expression: bool_not | bitwise | negtive | integer;
+
+bool_not: '!' expression;
+bitwise: '~' expression;
+negtive: '-' expression;
 
 integer: Integer;
+
+parameter: int_type Identifier;

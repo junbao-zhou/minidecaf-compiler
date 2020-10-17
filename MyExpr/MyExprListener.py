@@ -1,4 +1,4 @@
-# Generated from MyExpr/MyExpr.g4 by ANTLR 4.8
+# Generated from ./MyExpr/MyExpr.g4 by ANTLR 4.7.2
 from antlr4 import *
 if __name__ is not None and "." in __name__:
     from .MyExprParser import MyExprParser
@@ -17,12 +17,12 @@ class MyExprListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by MyExprParser#function.
-    def enterFunction(self, ctx:MyExprParser.FunctionContext):
+    # Enter a parse tree produced by MyExprParser#main_fun.
+    def enterMain_fun(self, ctx:MyExprParser.Main_funContext):
         pass
 
-    # Exit a parse tree produced by MyExprParser#function.
-    def exitFunction(self, ctx:MyExprParser.FunctionContext):
+    # Exit a parse tree produced by MyExprParser#main_fun.
+    def exitMain_fun(self, ctx:MyExprParser.Main_funContext):
         pass
 
 
@@ -44,12 +44,12 @@ class MyExprListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by MyExprParser#ret.
-    def enterRet(self, ctx:MyExprParser.RetContext):
+    # Enter a parse tree produced by MyExprParser#return_stat.
+    def enterReturn_stat(self, ctx:MyExprParser.Return_statContext):
         pass
 
-    # Exit a parse tree produced by MyExprParser#ret.
-    def exitRet(self, ctx:MyExprParser.RetContext):
+    # Exit a parse tree produced by MyExprParser#return_stat.
+    def exitReturn_stat(self, ctx:MyExprParser.Return_statContext):
         pass
 
 
@@ -62,6 +62,33 @@ class MyExprListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by MyExprParser#bool_not.
+    def enterBool_not(self, ctx:MyExprParser.Bool_notContext):
+        pass
+
+    # Exit a parse tree produced by MyExprParser#bool_not.
+    def exitBool_not(self, ctx:MyExprParser.Bool_notContext):
+        pass
+
+
+    # Enter a parse tree produced by MyExprParser#bitwise.
+    def enterBitwise(self, ctx:MyExprParser.BitwiseContext):
+        pass
+
+    # Exit a parse tree produced by MyExprParser#bitwise.
+    def exitBitwise(self, ctx:MyExprParser.BitwiseContext):
+        pass
+
+
+    # Enter a parse tree produced by MyExprParser#negtive.
+    def enterNegtive(self, ctx:MyExprParser.NegtiveContext):
+        pass
+
+    # Exit a parse tree produced by MyExprParser#negtive.
+    def exitNegtive(self, ctx:MyExprParser.NegtiveContext):
+        pass
+
+
     # Enter a parse tree produced by MyExprParser#integer.
     def enterInteger(self, ctx:MyExprParser.IntegerContext):
         pass
@@ -71,5 +98,12 @@ class MyExprListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by MyExprParser#parameter.
+    def enterParameter(self, ctx:MyExprParser.ParameterContext):
+        pass
 
-del MyExprParser
+    # Exit a parse tree produced by MyExprParser#parameter.
+    def exitParameter(self, ctx:MyExprParser.ParameterContext):
+        pass
+
+
