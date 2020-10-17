@@ -8,7 +8,10 @@
 			"name": "Python: Module",
 			"type": "python",
 			"request": "launch",
-			"module": "IR2asm"
+			"module": "minidecaf",
+			"args": [
+				"input.c"
+			]
 		}
 	]
 }

@@ -62,39 +62,75 @@ class MyExprListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by MyExprParser#bool_not.
-    def enterBool_not(self, ctx:MyExprParser.Bool_notContext):
+    # Enter a parse tree produced by MyExprParser#add_none.
+    def enterAdd_none(self, ctx:MyExprParser.Add_noneContext):
         pass
 
-    # Exit a parse tree produced by MyExprParser#bool_not.
-    def exitBool_not(self, ctx:MyExprParser.Bool_notContext):
-        pass
-
-
-    # Enter a parse tree produced by MyExprParser#bitwise.
-    def enterBitwise(self, ctx:MyExprParser.BitwiseContext):
-        pass
-
-    # Exit a parse tree produced by MyExprParser#bitwise.
-    def exitBitwise(self, ctx:MyExprParser.BitwiseContext):
+    # Exit a parse tree produced by MyExprParser#add_none.
+    def exitAdd_none(self, ctx:MyExprParser.Add_noneContext):
         pass
 
 
-    # Enter a parse tree produced by MyExprParser#negtive.
-    def enterNegtive(self, ctx:MyExprParser.NegtiveContext):
+    # Enter a parse tree produced by MyExprParser#add_operate.
+    def enterAdd_operate(self, ctx:MyExprParser.Add_operateContext):
         pass
 
-    # Exit a parse tree produced by MyExprParser#negtive.
-    def exitNegtive(self, ctx:MyExprParser.NegtiveContext):
+    # Exit a parse tree produced by MyExprParser#add_operate.
+    def exitAdd_operate(self, ctx:MyExprParser.Add_operateContext):
         pass
 
 
-    # Enter a parse tree produced by MyExprParser#integer.
-    def enterInteger(self, ctx:MyExprParser.IntegerContext):
+    # Enter a parse tree produced by MyExprParser#mul_none.
+    def enterMul_none(self, ctx:MyExprParser.Mul_noneContext):
         pass
 
-    # Exit a parse tree produced by MyExprParser#integer.
-    def exitInteger(self, ctx:MyExprParser.IntegerContext):
+    # Exit a parse tree produced by MyExprParser#mul_none.
+    def exitMul_none(self, ctx:MyExprParser.Mul_noneContext):
+        pass
+
+
+    # Enter a parse tree produced by MyExprParser#mul_operate.
+    def enterMul_operate(self, ctx:MyExprParser.Mul_operateContext):
+        pass
+
+    # Exit a parse tree produced by MyExprParser#mul_operate.
+    def exitMul_operate(self, ctx:MyExprParser.Mul_operateContext):
+        pass
+
+
+    # Enter a parse tree produced by MyExprParser#unary_none.
+    def enterUnary_none(self, ctx:MyExprParser.Unary_noneContext):
+        pass
+
+    # Exit a parse tree produced by MyExprParser#unary_none.
+    def exitUnary_none(self, ctx:MyExprParser.Unary_noneContext):
+        pass
+
+
+    # Enter a parse tree produced by MyExprParser#unary_operate.
+    def enterUnary_operate(self, ctx:MyExprParser.Unary_operateContext):
+        pass
+
+    # Exit a parse tree produced by MyExprParser#unary_operate.
+    def exitUnary_operate(self, ctx:MyExprParser.Unary_operateContext):
+        pass
+
+
+    # Enter a parse tree produced by MyExprParser#primaryInteger.
+    def enterPrimaryInteger(self, ctx:MyExprParser.PrimaryIntegerContext):
+        pass
+
+    # Exit a parse tree produced by MyExprParser#primaryInteger.
+    def exitPrimaryInteger(self, ctx:MyExprParser.PrimaryIntegerContext):
+        pass
+
+
+    # Enter a parse tree produced by MyExprParser#primaryParen.
+    def enterPrimaryParen(self, ctx:MyExprParser.PrimaryParenContext):
+        pass
+
+    # Exit a parse tree produced by MyExprParser#primaryParen.
+    def exitPrimaryParen(self, ctx:MyExprParser.PrimaryParenContext):
         pass
 
 

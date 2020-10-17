@@ -1,5 +1,3 @@
 int main() {
-    return ~9;
+    return (-12) / 5;
 }
-
-

@@ -16,28 +16,31 @@ public class IR2asmParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, Integer=9, 
-		Whitespace=10;
+		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, T__8=9, 
+		T__9=10, T__10=11, T__11=12, T__12=13, Integer=14, Whitespace=15;
 	public static final int
 		RULE_program = 0, RULE_main_fun = 1, RULE_instruction = 2, RULE_push = 3, 
-		RULE_ret = 4, RULE_lnot = 5, RULE_bitwise = 6, RULE_neg = 7;
+		RULE_ret = 4, RULE_lnot = 5, RULE_bitwise = 6, RULE_neg = 7, RULE_add = 8, 
+		RULE_sub = 9, RULE_mul = 10, RULE_div = 11, RULE_rem = 12;
 	private static String[] makeRuleNames() {
 		return new String[] {
 			"program", "main_fun", "instruction", "push", "ret", "lnot", "bitwise", 
-			"neg"
+			"neg", "add", "sub", "mul", "div", "rem"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'main'", "'{'", "'}'", "'PUSH'", "'RET'", "'LNOT'", "'NOT'", "'NEG'"
+			null, "'main'", "'{'", "'}'", "'PUSH'", "'RET'", "'LNOT'", "'NOT'", "'NEG'", 
+			"'ADD'", "'SUB'", "'MUL'", "'DIV'", "'REM'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, null, null, null, null, null, null, null, null, "Integer", "Whitespace"
+			null, null, null, null, null, null, null, null, null, null, null, null, 
+			null, null, "Integer", "Whitespace"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -107,7 +110,7 @@ public class IR2asmParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(16);
+			setState(26);
 			main_fun();
 			}
 		}
@@ -142,25 +145,25 @@ public class IR2asmParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(18);
+			setState(28);
 			match(T__0);
-			setState(19);
+			setState(29);
 			match(T__1);
-			setState(23);
+			setState(33);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__3) | (1L << T__4) | (1L << T__5) | (1L << T__6) | (1L << T__7))) != 0)) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__3) | (1L << T__4) | (1L << T__5) | (1L << T__6) | (1L << T__7) | (1L << T__8) | (1L << T__9) | (1L << T__10) | (1L << T__11) | (1L << T__12))) != 0)) {
 				{
 				{
-				setState(20);
+				setState(30);
 				instruction();
 				}
 				}
-				setState(25);
+				setState(35);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(26);
+			setState(36);
 			match(T__2);
 			}
 		}
@@ -191,6 +194,21 @@ public class IR2asmParser extends Parser {
 		public NegContext neg() {
 			return getRuleContext(NegContext.class,0);
 		}
+		public AddContext add() {
+			return getRuleContext(AddContext.class,0);
+		}
+		public SubContext sub() {
+			return getRuleContext(SubContext.class,0);
+		}
+		public MulContext mul() {
+			return getRuleContext(MulContext.class,0);
+		}
+		public DivContext div() {
+			return getRuleContext(DivContext.class,0);
+		}
+		public RemContext rem() {
+			return getRuleContext(RemContext.class,0);
+		}
 		public InstructionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -201,42 +219,77 @@ public class IR2asmParser extends Parser {
 		InstructionContext _localctx = new InstructionContext(_ctx, getState());
 		enterRule(_localctx, 4, RULE_instruction);
 		try {
-			setState(33);
+			setState(48);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case T__3:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(28);
+				setState(38);
 				push();
 				}
 				break;
 			case T__4:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(29);
+				setState(39);
 				ret();
 				}
 				break;
 			case T__5:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(30);
+				setState(40);
 				lnot();
 				}
 				break;
 			case T__6:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(31);
+				setState(41);
 				bitwise();
 				}
 				break;
 			case T__7:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(32);
+				setState(42);
 				neg();
+				}
+				break;
+			case T__8:
+				enterOuterAlt(_localctx, 6);
+				{
+				setState(43);
+				add();
+				}
+				break;
+			case T__9:
+				enterOuterAlt(_localctx, 7);
+				{
+				setState(44);
+				sub();
+				}
+				break;
+			case T__10:
+				enterOuterAlt(_localctx, 8);
+				{
+				setState(45);
+				mul();
+				}
+				break;
+			case T__11:
+				enterOuterAlt(_localctx, 9);
+				{
+				setState(46);
+				div();
+				}
+				break;
+			case T__12:
+				enterOuterAlt(_localctx, 10);
+				{
+				setState(47);
+				rem();
 				}
 				break;
 			default:
@@ -268,9 +321,9 @@ public class IR2asmParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(35);
+			setState(50);
 			match(T__3);
-			setState(36);
+			setState(51);
 			match(Integer);
 			}
 		}
@@ -298,7 +351,7 @@ public class IR2asmParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(38);
+			setState(53);
 			match(T__4);
 			}
 		}
@@ -326,7 +379,7 @@ public class IR2asmParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(40);
+			setState(55);
 			match(T__5);
 			}
 		}
@@ -354,7 +407,7 @@ public class IR2asmParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(42);
+			setState(57);
 			match(T__6);
 			}
 		}
@@ -382,7 +435,7 @@ public class IR2asmParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(44);
+			setState(59);
 			match(T__7);
 			}
 		}
@@ -397,19 +450,165 @@ public class IR2asmParser extends Parser {
 		return _localctx;
 	}
 
+	public static class AddContext extends ParserRuleContext {
+		public AddContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_add; }
+	}
+
+	public final AddContext add() throws RecognitionException {
+		AddContext _localctx = new AddContext(_ctx, getState());
+		enterRule(_localctx, 16, RULE_add);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(61);
+			match(T__8);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class SubContext extends ParserRuleContext {
+		public SubContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_sub; }
+	}
+
+	public final SubContext sub() throws RecognitionException {
+		SubContext _localctx = new SubContext(_ctx, getState());
+		enterRule(_localctx, 18, RULE_sub);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(63);
+			match(T__9);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class MulContext extends ParserRuleContext {
+		public MulContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_mul; }
+	}
+
+	public final MulContext mul() throws RecognitionException {
+		MulContext _localctx = new MulContext(_ctx, getState());
+		enterRule(_localctx, 20, RULE_mul);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(65);
+			match(T__10);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class DivContext extends ParserRuleContext {
+		public DivContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_div; }
+	}
+
+	public final DivContext div() throws RecognitionException {
+		DivContext _localctx = new DivContext(_ctx, getState());
+		enterRule(_localctx, 22, RULE_div);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(67);
+			match(T__11);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class RemContext extends ParserRuleContext {
+		public RemContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_rem; }
+	}
+
+	public final RemContext rem() throws RecognitionException {
+		RemContext _localctx = new RemContext(_ctx, getState());
+		enterRule(_localctx, 24, RULE_rem);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(69);
+			match(T__12);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\f\61\4\2\t\2\4\3"+
-		"\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\3\2\3\2\3\3\3\3\3"+
-		"\3\7\3\30\n\3\f\3\16\3\33\13\3\3\3\3\3\3\4\3\4\3\4\3\4\3\4\5\4$\n\4\3"+
-		"\5\3\5\3\5\3\6\3\6\3\7\3\7\3\b\3\b\3\t\3\t\3\t\2\2\n\2\4\6\b\n\f\16\20"+
-		"\2\2\2-\2\22\3\2\2\2\4\24\3\2\2\2\6#\3\2\2\2\b%\3\2\2\2\n(\3\2\2\2\f*"+
-		"\3\2\2\2\16,\3\2\2\2\20.\3\2\2\2\22\23\5\4\3\2\23\3\3\2\2\2\24\25\7\3"+
-		"\2\2\25\31\7\4\2\2\26\30\5\6\4\2\27\26\3\2\2\2\30\33\3\2\2\2\31\27\3\2"+
-		"\2\2\31\32\3\2\2\2\32\34\3\2\2\2\33\31\3\2\2\2\34\35\7\5\2\2\35\5\3\2"+
-		"\2\2\36$\5\b\5\2\37$\5\n\6\2 $\5\f\7\2!$\5\16\b\2\"$\5\20\t\2#\36\3\2"+
-		"\2\2#\37\3\2\2\2# \3\2\2\2#!\3\2\2\2#\"\3\2\2\2$\7\3\2\2\2%&\7\6\2\2&"+
-		"\'\7\13\2\2\'\t\3\2\2\2()\7\7\2\2)\13\3\2\2\2*+\7\b\2\2+\r\3\2\2\2,-\7"+
-		"\t\2\2-\17\3\2\2\2./\7\n\2\2/\21\3\2\2\2\4\31#";
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\21J\4\2\t\2\4\3\t"+
+		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4"+
+		"\f\t\f\4\r\t\r\4\16\t\16\3\2\3\2\3\3\3\3\3\3\7\3\"\n\3\f\3\16\3%\13\3"+
+		"\3\3\3\3\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\5\4\63\n\4\3\5\3\5\3"+
+		"\5\3\6\3\6\3\7\3\7\3\b\3\b\3\t\3\t\3\n\3\n\3\13\3\13\3\f\3\f\3\r\3\r\3"+
+		"\16\3\16\3\16\2\2\17\2\4\6\b\n\f\16\20\22\24\26\30\32\2\2\2F\2\34\3\2"+
+		"\2\2\4\36\3\2\2\2\6\62\3\2\2\2\b\64\3\2\2\2\n\67\3\2\2\2\f9\3\2\2\2\16"+
+		";\3\2\2\2\20=\3\2\2\2\22?\3\2\2\2\24A\3\2\2\2\26C\3\2\2\2\30E\3\2\2\2"+
+		"\32G\3\2\2\2\34\35\5\4\3\2\35\3\3\2\2\2\36\37\7\3\2\2\37#\7\4\2\2 \"\5"+
+		"\6\4\2! \3\2\2\2\"%\3\2\2\2#!\3\2\2\2#$\3\2\2\2$&\3\2\2\2%#\3\2\2\2&\'"+
+		"\7\5\2\2\'\5\3\2\2\2(\63\5\b\5\2)\63\5\n\6\2*\63\5\f\7\2+\63\5\16\b\2"+
+		",\63\5\20\t\2-\63\5\22\n\2.\63\5\24\13\2/\63\5\26\f\2\60\63\5\30\r\2\61"+
+		"\63\5\32\16\2\62(\3\2\2\2\62)\3\2\2\2\62*\3\2\2\2\62+\3\2\2\2\62,\3\2"+
+		"\2\2\62-\3\2\2\2\62.\3\2\2\2\62/\3\2\2\2\62\60\3\2\2\2\62\61\3\2\2\2\63"+
+		"\7\3\2\2\2\64\65\7\6\2\2\65\66\7\20\2\2\66\t\3\2\2\2\678\7\7\2\28\13\3"+
+		"\2\2\29:\7\b\2\2:\r\3\2\2\2;<\7\t\2\2<\17\3\2\2\2=>\7\n\2\2>\21\3\2\2"+
+		"\2?@\7\13\2\2@\23\3\2\2\2AB\7\f\2\2B\25\3\2\2\2CD\7\r\2\2D\27\3\2\2\2"+
+		"EF\7\16\2\2F\31\3\2\2\2GH\7\17\2\2H\33\3\2\2\2\4#\62";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

@@ -9,7 +9,7 @@
 	.globl	main
 	.type	main, @function
 main:
-	not	a0,a0
+	rem	a0,a0,a1
 	ret
 	.size	main, .-main
 	.ident	"GCC: (SiFive GCC 8.3.0-2020.04.0) 8.3.0"

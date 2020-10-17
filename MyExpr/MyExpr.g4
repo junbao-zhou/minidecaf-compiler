@@ -12,12 +12,22 @@ statement: return_stat;
 
 return_stat: 'return' expression ';';
 
-expression: bool_not | bitwise | negtive | integer;
+expression: additive;
 
-bool_not: '!' expression;
-bitwise: '~' expression;
-negtive: '-' expression;
+additive:
+	multiplicative								# add_none
+	| additive op = ('+' | '-') multiplicative	# add_operate;
 
-integer: Integer;
+multiplicative:
+	unary											# mul_none
+	| multiplicative op = ('*' | '/' | '%') unary	# mul_operate;
+
+unary:
+	primary							# unary_none
+	| op = ('-' | '~' | '!') unary	# unary_operate;
+
+primary:
+	Integer					# primaryInteger
+	| '(' expression ')'	# primaryParen;
 
 parameter: int_type Identifier;

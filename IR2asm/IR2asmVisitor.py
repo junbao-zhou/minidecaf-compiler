@@ -49,5 +49,30 @@ class IR2asmVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by IR2asmParser#add.
+    def visitAdd(self, ctx:IR2asmParser.AddContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by IR2asmParser#sub.
+    def visitSub(self, ctx:IR2asmParser.SubContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by IR2asmParser#mul.
+    def visitMul(self, ctx:IR2asmParser.MulContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by IR2asmParser#div.
+    def visitDiv(self, ctx:IR2asmParser.DivContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by IR2asmParser#rem.
+    def visitRem(self, ctx:IR2asmParser.RemContext):
+        return self.visitChildren(ctx)
+
+
 
 del IR2asmParser

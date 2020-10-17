@@ -31,27 +31,62 @@ main{
     def visitExpression(self, ctx: MyExprParser.ExpressionContext):
         return self.visitChildren(ctx)
 
-    # Visit a parse tree produced by MyExprParser#bool_not.
-    def visitBool_not(self, ctx: MyExprParser.Bool_notContext):
-        return self.visitChildren(ctx) + """
-LNOT
+    # Visit a parse tree produced by MyExprParser#add_operate.
+    def visitAdd_operate(self, ctx: MyExprParser.Add_operateContext):
+        string = ctx.additive().accept(self)
+        string += ctx.multiplicative().accept(self)
+        if ctx.op.text == '+':
+            string += """
+ADD
 """
-
-    # Visit a parse tree produced by MyExprParser#bitwise.
-    def visitBitwise(self, ctx: MyExprParser.BitwiseContext):
-        return self.visitChildren(ctx) + """
-NOT
+        elif ctx.op.text == '-':
+            string += """
+SUB
 """
+        return string
 
-    # Visit a parse tree produced by MyExprParser#negtive.
-    def visitNegtive(self, ctx: MyExprParser.NegtiveContext):
-        return self.visitChildren(ctx) + """
+    # Visit a parse tree produced by MyExprParser#mul_operate.
+    def visitMul_operate(self, ctx: MyExprParser.Mul_operateContext):
+        string = ctx.multiplicative().accept(self)
+        string += ctx.unary().accept(self)
+        if ctx.op.text == '*':
+            string += """
+MUL
+"""
+        elif ctx.op.text == '/':
+            string += """
+DIV
+"""
+        elif ctx.op.text == '%':
+            string += """
+REM
+"""
+        return string
+
+    # Visit a parse tree produced by MyExprParser#unary_operate.
+    def visitUnary_operate(self, ctx: MyExprParser.Unary_operateContext):
+        string = ctx.unary().accept(self)
+        if ctx.op.text == '-':
+            string += """
 NEG
 """
+        elif ctx.op.text == '~':
+            string += """
+NOT
+"""
+        elif ctx.op.text == '!':
+            string += """
+LNOT
+"""
+        return string
 
-    # Visit a parse tree produced by MyExprParser#integer.
-    def visitInteger(self, ctx: MyExprParser.IntegerContext):
+    # Visit a parse tree produced by MyExprParser#primaryInteger.
+    def visitPrimaryInteger(self, ctx: MyExprParser.PrimaryIntegerContext):
         i = int(ctx.Integer().getText())
         if i > 2**31 - 1:
             raise Exception('int too large')
         return "PUSH " + str(i) + "\n"
+
+    # Visit a parse tree produced by MyExprParser#primaryParen.
+    def visitPrimaryParen(self, ctx: MyExprParser.PrimaryParenContext):
+        return ctx.expression().accept(self)

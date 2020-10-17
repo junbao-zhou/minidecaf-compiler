@@ -80,3 +80,48 @@ class IR2asmListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by IR2asmParser#add.
+    def enterAdd(self, ctx:IR2asmParser.AddContext):
+        pass
+
+    # Exit a parse tree produced by IR2asmParser#add.
+    def exitAdd(self, ctx:IR2asmParser.AddContext):
+        pass
+
+
+    # Enter a parse tree produced by IR2asmParser#sub.
+    def enterSub(self, ctx:IR2asmParser.SubContext):
+        pass
+
+    # Exit a parse tree produced by IR2asmParser#sub.
+    def exitSub(self, ctx:IR2asmParser.SubContext):
+        pass
+
+
+    # Enter a parse tree produced by IR2asmParser#mul.
+    def enterMul(self, ctx:IR2asmParser.MulContext):
+        pass
+
+    # Exit a parse tree produced by IR2asmParser#mul.
+    def exitMul(self, ctx:IR2asmParser.MulContext):
+        pass
+
+
+    # Enter a parse tree produced by IR2asmParser#div.
+    def enterDiv(self, ctx:IR2asmParser.DivContext):
+        pass
+
+    # Exit a parse tree produced by IR2asmParser#div.
+    def exitDiv(self, ctx:IR2asmParser.DivContext):
+        pass
+
+
+    # Enter a parse tree produced by IR2asmParser#rem.
+    def enterRem(self, ctx:IR2asmParser.RemContext):
+        pass
+
+    # Exit a parse tree produced by IR2asmParser#rem.
+    def exitRem(self, ctx:IR2asmParser.RemContext):
+        pass
+
+

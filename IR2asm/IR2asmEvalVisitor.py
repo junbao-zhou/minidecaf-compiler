@@ -63,3 +63,53 @@ main:
     neg t1, t1
     sw t1, 0(sp)
 """
+    # Visit a parse tree produced by IR2asmParser#add.
+
+    def visitAdd(self, ctx: IR2asmParser.AddContext):
+        return """
+    lw t1, 4(sp)
+    lw t2, 0(sp)
+    add t1, t1, t2
+    addi sp, sp, 4
+    sw t1, 0(sp)
+"""
+
+    # Visit a parse tree produced by IR2asmParser#sub.
+    def visitSub(self, ctx: IR2asmParser.SubContext):
+        return """
+    lw t1, 4(sp)
+    lw t2, 0(sp)
+    sub t1, t1, t2
+    addi sp, sp, 4
+    sw t1, 0(sp)
+"""
+
+    # Visit a parse tree produced by IR2asmParser#mul.
+    def visitMul(self, ctx: IR2asmParser.MulContext):
+        return """
+    lw t1, 4(sp)
+    lw t2, 0(sp)
+    mul t1, t1, t2
+    addi sp, sp, 4
+    sw t1, 0(sp)
+"""
+
+    # Visit a parse tree produced by IR2asmParser#div.
+    def visitDiv(self, ctx: IR2asmParser.DivContext):
+        return """
+    lw t1, 4(sp)
+    lw t2, 0(sp)
+    div t1, t1, t2
+    addi sp, sp, 4
+    sw t1, 0(sp)
+"""
+
+    # Visit a parse tree produced by IR2asmParser#mod.
+    def visitRem(self, ctx: IR2asmParser.RemContext):
+        return """
+    lw t1, 4(sp)
+    lw t2, 0(sp)
+    rem t1, t1, t2
+    addi sp, sp, 4
+    sw t1, 0(sp)
+"""

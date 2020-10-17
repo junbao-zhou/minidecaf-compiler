@@ -39,23 +39,43 @@ class MyExprVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by MyExprParser#bool_not.
-    def visitBool_not(self, ctx:MyExprParser.Bool_notContext):
+    # Visit a parse tree produced by MyExprParser#add_none.
+    def visitAdd_none(self, ctx:MyExprParser.Add_noneContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by MyExprParser#bitwise.
-    def visitBitwise(self, ctx:MyExprParser.BitwiseContext):
+    # Visit a parse tree produced by MyExprParser#add_operate.
+    def visitAdd_operate(self, ctx:MyExprParser.Add_operateContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by MyExprParser#negtive.
-    def visitNegtive(self, ctx:MyExprParser.NegtiveContext):
+    # Visit a parse tree produced by MyExprParser#mul_none.
+    def visitMul_none(self, ctx:MyExprParser.Mul_noneContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by MyExprParser#integer.
-    def visitInteger(self, ctx:MyExprParser.IntegerContext):
+    # Visit a parse tree produced by MyExprParser#mul_operate.
+    def visitMul_operate(self, ctx:MyExprParser.Mul_operateContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MyExprParser#unary_none.
+    def visitUnary_none(self, ctx:MyExprParser.Unary_noneContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MyExprParser#unary_operate.
+    def visitUnary_operate(self, ctx:MyExprParser.Unary_operateContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MyExprParser#primaryInteger.
+    def visitPrimaryInteger(self, ctx:MyExprParser.PrimaryIntegerContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MyExprParser#primaryParen.
+    def visitPrimaryParen(self, ctx:MyExprParser.PrimaryParenContext):
         return self.visitChildren(ctx)
 
 
