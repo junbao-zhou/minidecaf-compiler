@@ -115,40 +115,42 @@ rem: 'REM';
 
 1. 给出将寄存器 t0 中的数值压入栈中所需的 riscv 汇编指令序列；给出将栈顶的数值弹出到寄存器 t0 中所需的 riscv 汇编指令序列。
 
-```mips
-# 压栈
-addi	sp	sp	-4
-sw	t0	0(sp)
-```
+    aaa
 
-```mips
-# 出栈
-lw	t0	0(sp)
-addi	sp	sp	4
-```
+    ```mips
+    # 压栈
+    addi	sp	sp	-4
+    sw	t0	0(sp)
+    ```
+
+	```mips
+	# 出栈
+	lw	t0	0(sp)
+	addi	sp	sp	4
+	```
 
 2. 语义规范中规定“除以零、模零都是未定义行为”，但是即使除法的右操作数不是 0，仍然可能存在未定义行为。请问这时除法的左操作数和右操作数分别是什么？请将这时除法的左操作数和右操作数填入下面的代码中，分别在你的电脑（请标明你的电脑的架构，比如 x86-64 或 ARM）中和 RISCV-32 的 qemu 模拟器中编译运行下面的代码，并给出运行结果。（编译时请不要开启任何编译优化）
 
-```c
-#include <stdio.h>
+	```c
+	#include <stdio.h>
 
-int main() {
-  int a = -2147483648;
-  int b = -1;
-  printf("%d\n", a / b);
-  return 0;
-}
-```
+	int main() {
+	  int a = -2147483648;
+	  int b = -1;
+	  printf("%d\n", a / b);
+	  return 0;
+	}
+	```
 
-左操作数是最小的负整数， 右操作数是 -1 。 这时除法给出的结果是发生数值越界的， 这就是未定义行为。
+	左操作数是最小的负整数， 右操作数是 -1 。 这时除法给出的结果是发生数值越界的， 这就是未定义行为。
 
 
-我的机器环境为：x86_64, Ubuntu 系统。 在我的机器上的运行结果：
-```bash
-[1]    92559 floating point exception (core dumped)
-```
+	我的机器环境为：x86_64, Ubuntu 系统。 在我的机器上的运行结果：
+	```bash
+	[1]    92559 floating point exception (core dumped)
+	```
 
-使用 qemu 执行的结果：
-```bash
--2147483648
-```
+	使用 qemu 执行的结果：
+	```bash
+	-2147483648
+	```
