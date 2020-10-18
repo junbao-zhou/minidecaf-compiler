@@ -62,6 +62,78 @@ class MyExprListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by MyExprParser#or_operate.
+    def enterOr_operate(self, ctx:MyExprParser.Or_operateContext):
+        pass
+
+    # Exit a parse tree produced by MyExprParser#or_operate.
+    def exitOr_operate(self, ctx:MyExprParser.Or_operateContext):
+        pass
+
+
+    # Enter a parse tree produced by MyExprParser#or_none.
+    def enterOr_none(self, ctx:MyExprParser.Or_noneContext):
+        pass
+
+    # Exit a parse tree produced by MyExprParser#or_none.
+    def exitOr_none(self, ctx:MyExprParser.Or_noneContext):
+        pass
+
+
+    # Enter a parse tree produced by MyExprParser#and_none.
+    def enterAnd_none(self, ctx:MyExprParser.And_noneContext):
+        pass
+
+    # Exit a parse tree produced by MyExprParser#and_none.
+    def exitAnd_none(self, ctx:MyExprParser.And_noneContext):
+        pass
+
+
+    # Enter a parse tree produced by MyExprParser#and_operate.
+    def enterAnd_operate(self, ctx:MyExprParser.And_operateContext):
+        pass
+
+    # Exit a parse tree produced by MyExprParser#and_operate.
+    def exitAnd_operate(self, ctx:MyExprParser.And_operateContext):
+        pass
+
+
+    # Enter a parse tree produced by MyExprParser#equal_operate.
+    def enterEqual_operate(self, ctx:MyExprParser.Equal_operateContext):
+        pass
+
+    # Exit a parse tree produced by MyExprParser#equal_operate.
+    def exitEqual_operate(self, ctx:MyExprParser.Equal_operateContext):
+        pass
+
+
+    # Enter a parse tree produced by MyExprParser#equal_none.
+    def enterEqual_none(self, ctx:MyExprParser.Equal_noneContext):
+        pass
+
+    # Exit a parse tree produced by MyExprParser#equal_none.
+    def exitEqual_none(self, ctx:MyExprParser.Equal_noneContext):
+        pass
+
+
+    # Enter a parse tree produced by MyExprParser#relation_none.
+    def enterRelation_none(self, ctx:MyExprParser.Relation_noneContext):
+        pass
+
+    # Exit a parse tree produced by MyExprParser#relation_none.
+    def exitRelation_none(self, ctx:MyExprParser.Relation_noneContext):
+        pass
+
+
+    # Enter a parse tree produced by MyExprParser#relation_operate.
+    def enterRelation_operate(self, ctx:MyExprParser.Relation_operateContext):
+        pass
+
+    # Exit a parse tree produced by MyExprParser#relation_operate.
+    def exitRelation_operate(self, ctx:MyExprParser.Relation_operateContext):
+        pass
+
+
     # Enter a parse tree produced by MyExprParser#add_none.
     def enterAdd_none(self, ctx:MyExprParser.Add_noneContext):
         pass

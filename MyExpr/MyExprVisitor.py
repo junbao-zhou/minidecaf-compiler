@@ -39,6 +39,46 @@ class MyExprVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by MyExprParser#or_operate.
+    def visitOr_operate(self, ctx:MyExprParser.Or_operateContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MyExprParser#or_none.
+    def visitOr_none(self, ctx:MyExprParser.Or_noneContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MyExprParser#and_none.
+    def visitAnd_none(self, ctx:MyExprParser.And_noneContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MyExprParser#and_operate.
+    def visitAnd_operate(self, ctx:MyExprParser.And_operateContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MyExprParser#equal_operate.
+    def visitEqual_operate(self, ctx:MyExprParser.Equal_operateContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MyExprParser#equal_none.
+    def visitEqual_none(self, ctx:MyExprParser.Equal_noneContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MyExprParser#relation_none.
+    def visitRelation_none(self, ctx:MyExprParser.Relation_noneContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MyExprParser#relation_operate.
+    def visitRelation_operate(self, ctx:MyExprParser.Relation_operateContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by MyExprParser#add_none.
     def visitAdd_none(self, ctx:MyExprParser.Add_noneContext):
         return self.visitChildren(ctx)

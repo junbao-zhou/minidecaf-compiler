@@ -50,4 +50,3 @@ def main():
     visitor = IR2asmEvalVisitor()
     asm = tree.accept(visitor)
     print(asm)
-    # print(IR2asm(IRcode))

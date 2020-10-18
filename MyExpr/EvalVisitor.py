@@ -5,11 +5,9 @@ from .MyExprVisitor import MyExprVisitor
 
 class EvalVisitor(MyExprVisitor):
 
-    # Visit a parse tree produced by MyExprParser#program.
     def visitProgram(self, ctx: MyExprParser.ProgramContext):
         return ctx.main_fun().accept(self)
 
-    # Visit a parse tree produced by MyExprParser#function.
     def visitMain_fun(self, ctx: MyExprParser.Main_funContext):
         string = """
 main{
@@ -19,74 +17,78 @@ main{
         string += "}"
         return string
 
-    # Visit a parse tree produced by MyExprParser#statement.
     def visitStatement(self, ctx: MyExprParser.StatementContext):
         return self.visitChildren(ctx)
 
-    # Visit a parse tree produced by MyExprParser#return_stat.
     def visitReturn_stat(self, ctx: MyExprParser.Return_statContext):
-        return ctx.expression().accept(self) + "RET\n"
+        return f"""\
+{ctx.expression().accept(self)}\
+RET
+"""
 
-    # Visit a parse tree produced by MyExprParser#expression.
-    def visitExpression(self, ctx: MyExprParser.ExpressionContext):
-        return self.visitChildren(ctx)
+    def visitOr_operate(self, ctx: MyExprParser.Or_operateContext):
+        return f"""\
+{ctx.logical_or().accept(self)}\
+{ctx.logical_and().accept(self)}\
+LOR
+"""
 
-    # Visit a parse tree produced by MyExprParser#add_operate.
+    def visitAnd_operate(self, ctx: MyExprParser.And_operateContext):
+        return f"""\
+{ctx.logical_and().accept(self)}\
+{ctx.equality().accept(self)}\
+LAND
+"""
+
+    def visitEqual_operate(self, ctx: MyExprParser.Equal_operateContext):
+        return f"""\
+{ctx.equality().accept(self)}\
+{ctx.relational().accept(self)}\
+{"EQ"   if ctx.op.text == '=='  else 
+"NE" if ctx.op.text == '!=' else ''}
+"""
+
+    def visitRelation_operate(self, ctx: MyExprParser.Relation_operateContext):
+        return f"""\
+{ctx.relational().accept(self)}\
+{ctx.additive().accept(self)}\
+{"LT"   if ctx.op.text == '<'   else 
+"GT"    if ctx.op.text == '>'   else
+"LE"    if ctx.op.text == '<='  else
+"GE"    if ctx.op.text == '>='  else ''}
+"""
+
     def visitAdd_operate(self, ctx: MyExprParser.Add_operateContext):
-        string = ctx.additive().accept(self)
-        string += ctx.multiplicative().accept(self)
-        if ctx.op.text == '+':
-            string += """
-ADD
+        return f"""\
+{ctx.additive().accept(self)}\
+{ctx.multiplicative().accept(self)}\
+{"ADD"  if ctx.op.text == '+'   else 
+"SUB"   if ctx.op.text == '-'   else ''}
 """
-        elif ctx.op.text == '-':
-            string += """
-SUB
-"""
-        return string
 
-    # Visit a parse tree produced by MyExprParser#mul_operate.
     def visitMul_operate(self, ctx: MyExprParser.Mul_operateContext):
-        string = ctx.multiplicative().accept(self)
-        string += ctx.unary().accept(self)
-        if ctx.op.text == '*':
-            string += """
-MUL
+        return f"""\
+{ctx.multiplicative().accept(self)}\
+{ctx.unary().accept(self)}\
+{"MUL"  if ctx.op.text == '*'   else 
+"DIV"   if ctx.op.text == '/'   else
+"REM"   if ctx.op.text == '%'   else ''}
 """
-        elif ctx.op.text == '/':
-            string += """
-DIV
-"""
-        elif ctx.op.text == '%':
-            string += """
-REM
-"""
-        return string
 
-    # Visit a parse tree produced by MyExprParser#unary_operate.
     def visitUnary_operate(self, ctx: MyExprParser.Unary_operateContext):
-        string = ctx.unary().accept(self)
-        if ctx.op.text == '-':
-            string += """
-NEG
+        return f"""\
+{ctx.unary().accept(self)}\
+{"NEG"  if ctx.op.text == '-'   else 
+"NOT"   if ctx.op.text == '~'   else
+"LNOT"  if ctx.op.text == '!'   else ''}
 """
-        elif ctx.op.text == '~':
-            string += """
-NOT
-"""
-        elif ctx.op.text == '!':
-            string += """
-LNOT
-"""
-        return string
 
-    # Visit a parse tree produced by MyExprParser#primaryInteger.
     def visitPrimaryInteger(self, ctx: MyExprParser.PrimaryIntegerContext):
         i = int(ctx.Integer().getText())
         if i > 2**31 - 1:
             raise Exception('int too large')
-        return "PUSH " + str(i) + "\n"
+        return f"""PUSH {str(i)}
+"""
 
-    # Visit a parse tree produced by MyExprParser#primaryParen.
     def visitPrimaryParen(self, ctx: MyExprParser.PrimaryParenContext):
         return ctx.expression().accept(self)

@@ -12,7 +12,23 @@ statement: return_stat;
 
 return_stat: 'return' expression ';';
 
-expression: additive;
+expression: logical_or;
+
+logical_or:
+	logical_and						# or_none
+	| logical_or '||' logical_and	# or_operate;
+
+logical_and:
+	equality					# and_none
+	| logical_and '&&' equality	# and_operate;
+
+equality:
+	relational									# equal_none
+	| equality op = ('==' | '!=') relational	# equal_operate;
+
+relational:
+	additive												# relation_none
+	| relational op = ('<' | '>' | '<=' | '>=') additive	# relation_operate;
 
 additive:
 	multiplicative								# add_none

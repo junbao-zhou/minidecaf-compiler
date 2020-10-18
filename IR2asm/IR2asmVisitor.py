@@ -34,18 +34,53 @@ class IR2asmVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by IR2asmParser#lnot.
-    def visitLnot(self, ctx:IR2asmParser.LnotContext):
+    # Visit a parse tree produced by IR2asmParser#two_op.
+    def visitTwo_op(self, ctx:IR2asmParser.Two_opContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by IR2asmParser#bitwise.
-    def visitBitwise(self, ctx:IR2asmParser.BitwiseContext):
+    # Visit a parse tree produced by IR2asmParser#one_op.
+    def visitOne_op(self, ctx:IR2asmParser.One_opContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by IR2asmParser#neg.
-    def visitNeg(self, ctx:IR2asmParser.NegContext):
+    # Visit a parse tree produced by IR2asmParser#lor.
+    def visitLor(self, ctx:IR2asmParser.LorContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by IR2asmParser#land.
+    def visitLand(self, ctx:IR2asmParser.LandContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by IR2asmParser#eq.
+    def visitEq(self, ctx:IR2asmParser.EqContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by IR2asmParser#ne.
+    def visitNe(self, ctx:IR2asmParser.NeContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by IR2asmParser#lt.
+    def visitLt(self, ctx:IR2asmParser.LtContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by IR2asmParser#gt.
+    def visitGt(self, ctx:IR2asmParser.GtContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by IR2asmParser#le.
+    def visitLe(self, ctx:IR2asmParser.LeContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by IR2asmParser#ge.
+    def visitGe(self, ctx:IR2asmParser.GeContext):
         return self.visitChildren(ctx)
 
 
@@ -71,6 +106,21 @@ class IR2asmVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by IR2asmParser#rem.
     def visitRem(self, ctx:IR2asmParser.RemContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by IR2asmParser#neg.
+    def visitNeg(self, ctx:IR2asmParser.NegContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by IR2asmParser#bitwise.
+    def visitBitwise(self, ctx:IR2asmParser.BitwiseContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by IR2asmParser#lnot.
+    def visitLnot(self, ctx:IR2asmParser.LnotContext):
         return self.visitChildren(ctx)
 
 
