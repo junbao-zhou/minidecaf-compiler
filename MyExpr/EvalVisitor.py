@@ -9,21 +9,60 @@ class EvalVisitor(MyExprVisitor):
         return ctx.main_fun().accept(self)
 
     def visitMain_fun(self, ctx: MyExprParser.Main_funContext):
-        string = """
-main{
-"""
+        self.variable_list = []
+        string = ""
         for i in ctx.statement():
             string += i.accept(self)
-        string += "}"
-        return string
+        return f"""\
+main{{
+PROLOGUE {self.variable_list.__len__()}
+{string}
+PUSH 0
+RET
+EPILOGUE {self.variable_list.__len__()}
+}}
+"""
 
-    def visitStatement(self, ctx: MyExprParser.StatementContext):
-        return self.visitChildren(ctx)
+    def visitStat_expr(self, ctx):
+        if ctx.expression() is None:
+            return ""
+        else:
+            return f"""\
+{ctx.expression().accept(self)}
+POP
+"""
+
+    def visitDeclaration(self, ctx: MyExprParser.DeclarationContext):
+        if ctx.expression() is None:
+            string = """\
+PUSH 0"""
+        else:
+            string = ctx.expression().accept(self)
+        if ctx.Identifier().getText() in self.variable_list:
+            raise Exception(
+                f"indentifier {ctx.Identifier().getText()} has been declared")
+        else:
+            self.variable_list.append(ctx.Identifier().getText())
+        return f"""\
+{string}
+FRAMEADDR {self.variable_list.index(ctx.Identifier().getText())}
+STORE
+POP
+"""
 
     def visitReturn_stat(self, ctx: MyExprParser.Return_statContext):
         return f"""\
 {ctx.expression().accept(self)}\
 RET
+"""
+
+    def visitAssign(self, ctx: MyExprParser.AssignContext):
+        if not (ctx.Identifier().getText() in self.variable_list):
+            raise Exception(f"Undefined variable {ctx.Identifier().getText()}")
+        return f"""\
+{ctx.expression().accept(self)}
+FRAMEADDR {self.variable_list.index(ctx.Identifier().getText())}
+STORE
 """
 
     def visitOr_operate(self, ctx: MyExprParser.Or_operateContext):
@@ -44,7 +83,7 @@ LAND
         return f"""\
 {ctx.equality().accept(self)}\
 {ctx.relational().accept(self)}\
-{"EQ"   if ctx.op.text == '=='  else 
+{"EQ"   if ctx.op.text == '=='  else
 "NE" if ctx.op.text == '!=' else ''}
 """
 
@@ -52,7 +91,7 @@ LAND
         return f"""\
 {ctx.relational().accept(self)}\
 {ctx.additive().accept(self)}\
-{"LT"   if ctx.op.text == '<'   else 
+{"LT"   if ctx.op.text == '<'   else
 "GT"    if ctx.op.text == '>'   else
 "LE"    if ctx.op.text == '<='  else
 "GE"    if ctx.op.text == '>='  else ''}
@@ -62,7 +101,7 @@ LAND
         return f"""\
 {ctx.additive().accept(self)}\
 {ctx.multiplicative().accept(self)}\
-{"ADD"  if ctx.op.text == '+'   else 
+{"ADD"  if ctx.op.text == '+'   else
 "SUB"   if ctx.op.text == '-'   else ''}
 """
 
@@ -70,7 +109,7 @@ LAND
         return f"""\
 {ctx.multiplicative().accept(self)}\
 {ctx.unary().accept(self)}\
-{"MUL"  if ctx.op.text == '*'   else 
+{"MUL"  if ctx.op.text == '*'   else
 "DIV"   if ctx.op.text == '/'   else
 "REM"   if ctx.op.text == '%'   else ''}
 """
@@ -78,7 +117,7 @@ LAND
     def visitUnary_operate(self, ctx: MyExprParser.Unary_operateContext):
         return f"""\
 {ctx.unary().accept(self)}\
-{"NEG"  if ctx.op.text == '-'   else 
+{"NEG"  if ctx.op.text == '-'   else
 "NOT"   if ctx.op.text == '~'   else
 "LNOT"  if ctx.op.text == '!'   else ''}
 """
@@ -92,3 +131,12 @@ LAND
 
     def visitPrimaryParen(self, ctx: MyExprParser.PrimaryParenContext):
         return ctx.expression().accept(self)
+
+    def visitPrimaryIdentifier(self, ctx):
+        if not ctx.Identifier().getText() in self.variable_list:
+            raise Exception(
+                f"Undefined variable {ctx.Identifier().getText()}")
+        return f"""\
+FRAMEADDR {self.variable_list.index(ctx.Identifier().getText())}
+LOAD
+"""

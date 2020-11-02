@@ -4,8 +4,24 @@ program: main_fun;
 
 main_fun: 'main' '{' instruction* '}';
 
-instruction: push | ret | two_op | one_op;
+instruction:
+	prologue
+	| epilogue
+	| frameaddr
+	| load
+	| store
+	| pop
+	| push
+	| ret
+	| two_op
+	| one_op;
 
+prologue: 'PROLOGUE' Integer;
+epilogue: 'EPILOGUE' Integer;
+frameaddr: 'FRAMEADDR' Integer;
+load: 'LOAD';
+store: 'STORE';
+pop: 'POP';
 push: 'PUSH' Integer;
 ret: 'RET';
 two_op:

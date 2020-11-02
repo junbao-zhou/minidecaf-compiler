@@ -35,12 +35,39 @@ class MyExprListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by MyExprParser#statement.
-    def enterStatement(self, ctx:MyExprParser.StatementContext):
+    # Enter a parse tree produced by MyExprParser#stat_ret.
+    def enterStat_ret(self, ctx:MyExprParser.Stat_retContext):
         pass
 
-    # Exit a parse tree produced by MyExprParser#statement.
-    def exitStatement(self, ctx:MyExprParser.StatementContext):
+    # Exit a parse tree produced by MyExprParser#stat_ret.
+    def exitStat_ret(self, ctx:MyExprParser.Stat_retContext):
+        pass
+
+
+    # Enter a parse tree produced by MyExprParser#stat_expr.
+    def enterStat_expr(self, ctx:MyExprParser.Stat_exprContext):
+        pass
+
+    # Exit a parse tree produced by MyExprParser#stat_expr.
+    def exitStat_expr(self, ctx:MyExprParser.Stat_exprContext):
+        pass
+
+
+    # Enter a parse tree produced by MyExprParser#stat_declr.
+    def enterStat_declr(self, ctx:MyExprParser.Stat_declrContext):
+        pass
+
+    # Exit a parse tree produced by MyExprParser#stat_declr.
+    def exitStat_declr(self, ctx:MyExprParser.Stat_declrContext):
+        pass
+
+
+    # Enter a parse tree produced by MyExprParser#declaration.
+    def enterDeclaration(self, ctx:MyExprParser.DeclarationContext):
+        pass
+
+    # Exit a parse tree produced by MyExprParser#declaration.
+    def exitDeclaration(self, ctx:MyExprParser.DeclarationContext):
         pass
 
 
@@ -59,6 +86,24 @@ class MyExprListener(ParseTreeListener):
 
     # Exit a parse tree produced by MyExprParser#expression.
     def exitExpression(self, ctx:MyExprParser.ExpressionContext):
+        pass
+
+
+    # Enter a parse tree produced by MyExprParser#assign_none.
+    def enterAssign_none(self, ctx:MyExprParser.Assign_noneContext):
+        pass
+
+    # Exit a parse tree produced by MyExprParser#assign_none.
+    def exitAssign_none(self, ctx:MyExprParser.Assign_noneContext):
+        pass
+
+
+    # Enter a parse tree produced by MyExprParser#assign.
+    def enterAssign(self, ctx:MyExprParser.AssignContext):
+        pass
+
+    # Exit a parse tree produced by MyExprParser#assign.
+    def exitAssign(self, ctx:MyExprParser.AssignContext):
         pass
 
 
@@ -203,6 +248,15 @@ class MyExprListener(ParseTreeListener):
 
     # Exit a parse tree produced by MyExprParser#primaryParen.
     def exitPrimaryParen(self, ctx:MyExprParser.PrimaryParenContext):
+        pass
+
+
+    # Enter a parse tree produced by MyExprParser#primaryIdentifier.
+    def enterPrimaryIdentifier(self, ctx:MyExprParser.PrimaryIdentifierContext):
+        pass
+
+    # Exit a parse tree produced by MyExprParser#primaryIdentifier.
+    def exitPrimaryIdentifier(self, ctx:MyExprParser.PrimaryIdentifierContext):
         pass
 
 

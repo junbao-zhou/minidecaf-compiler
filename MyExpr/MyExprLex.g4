@@ -21,7 +21,7 @@ Integer: [0-9]+;
 // Identifier
 fragment IdentLeadChar: [a-zA-Z_];
 fragment WordChar: [a-zA-Z0-9_];
-Identifier: IdentLeadChar WordChar+;
+Identifier: IdentLeadChar WordChar*;
 
 // 空白
 fragment WhitespaceChar: [ \t\n\r];

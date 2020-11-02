@@ -24,6 +24,36 @@ class IR2asmVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by IR2asmParser#prologue.
+    def visitPrologue(self, ctx:IR2asmParser.PrologueContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by IR2asmParser#epilogue.
+    def visitEpilogue(self, ctx:IR2asmParser.EpilogueContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by IR2asmParser#frameaddr.
+    def visitFrameaddr(self, ctx:IR2asmParser.FrameaddrContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by IR2asmParser#load.
+    def visitLoad(self, ctx:IR2asmParser.LoadContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by IR2asmParser#store.
+    def visitStore(self, ctx:IR2asmParser.StoreContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by IR2asmParser#pop.
+    def visitPop(self, ctx:IR2asmParser.PopContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by IR2asmParser#push.
     def visitPush(self, ctx:IR2asmParser.PushContext):
         return self.visitChildren(ctx)

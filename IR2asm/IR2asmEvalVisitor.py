@@ -16,12 +16,61 @@ class IR2asmEvalVisitor(IR2asmVisitor):
         string = """
 main:
 """
+        self.function_name = "main"
         for instruct in ctx.instruction():
             string = string + instruct.accept(self)
         return string
 
     def visitInstruction(self, ctx: IR2asmParser.InstructionContext):
         return self.visitChildren(ctx)
+
+    def visitPrologue(self, ctx):
+        framesize = 8+4*int(ctx.Integer().getText())
+        return f"""
+    addi sp, sp, -{framesize}
+    sw ra, {framesize-4}(sp)
+    sw fp, {framesize-8}(sp)
+    addi fp, sp, {framesize}
+"""
+
+    def visitEpilogue(self, ctx):
+        framesize = 8+4*int(ctx.Integer().getText())
+        return f"""
+    {self.function_name}_epilogue:
+    lw a0, 0(sp)
+    addi sp, sp, 4
+    lw fp, {framesize-8}(sp)
+    lw ra, {framesize-4}(sp)
+    addi sp, sp, {framesize}
+    jr ra
+"""
+
+    def visitFrameaddr(self, ctx):
+        return f"""
+    addi sp, sp, -4
+    addi t1, fp, {-12-4*int(ctx.Integer().getText())}
+    sw t1, 0(sp)
+"""
+
+    def visitLoad(self, ctx):
+        return f"""
+    lw t1, 0(sp)
+    lw t1, 0(t1)
+    sw t1, 0(sp)
+"""
+
+    def visitStore(self, ctx):
+        return f"""
+    lw t1, 4(sp)
+    lw t2, 0(sp)
+    addi sp, sp, 4
+    sw t1, 0(t2)
+"""
+
+    def visitPop(self, ctx):
+        return f"""
+    addi sp, sp, 4
+"""
 
     def visitPush(self, ctx: IR2asmParser.PushContext):
         return f"""
@@ -31,10 +80,8 @@ main:
 """
 
     def visitRet(self, ctx: IR2asmParser.RetContext):
-        return """
-    lw a0, 0(sp)
-    addi sp, sp, 4
-    jr ra
+        return f"""
+    j {self.function_name}_epilogue
 """
 
     def visitTwo_op(self, ctx: IR2asmParser.Two_opContext):

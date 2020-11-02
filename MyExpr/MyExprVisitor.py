@@ -24,8 +24,23 @@ class MyExprVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by MyExprParser#statement.
-    def visitStatement(self, ctx:MyExprParser.StatementContext):
+    # Visit a parse tree produced by MyExprParser#stat_ret.
+    def visitStat_ret(self, ctx:MyExprParser.Stat_retContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MyExprParser#stat_expr.
+    def visitStat_expr(self, ctx:MyExprParser.Stat_exprContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MyExprParser#stat_declr.
+    def visitStat_declr(self, ctx:MyExprParser.Stat_declrContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MyExprParser#declaration.
+    def visitDeclaration(self, ctx:MyExprParser.DeclarationContext):
         return self.visitChildren(ctx)
 
 
@@ -36,6 +51,16 @@ class MyExprVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by MyExprParser#expression.
     def visitExpression(self, ctx:MyExprParser.ExpressionContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MyExprParser#assign_none.
+    def visitAssign_none(self, ctx:MyExprParser.Assign_noneContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MyExprParser#assign.
+    def visitAssign(self, ctx:MyExprParser.AssignContext):
         return self.visitChildren(ctx)
 
 
@@ -116,6 +141,11 @@ class MyExprVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by MyExprParser#primaryParen.
     def visitPrimaryParen(self, ctx:MyExprParser.PrimaryParenContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MyExprParser#primaryIdentifier.
+    def visitPrimaryIdentifier(self, ctx:MyExprParser.PrimaryIdentifierContext):
         return self.visitChildren(ctx)
 
 

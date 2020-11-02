@@ -8,11 +8,20 @@ main_fun:
 
 int_type: 'int';
 
-statement: return_stat;
+statement:
+	return_stat			# stat_ret
+	| expression? ';'	# stat_expr
+	| declaration		# stat_declr;
+
+declaration: int_type Identifier ('=' expression)? ';';
 
 return_stat: 'return' expression ';';
 
-expression: logical_or;
+expression: assignment;
+
+assignment:
+	logical_or					# assign_none
+	| Identifier '=' expression	# assign;
 
 logical_or:
 	logical_and						# or_none
@@ -44,6 +53,7 @@ unary:
 
 primary:
 	Integer					# primaryInteger
-	| '(' expression ')'	# primaryParen;
+	| '(' expression ')'	# primaryParen
+	| Identifier			# primaryIdentifier;
 
 parameter: int_type Identifier;

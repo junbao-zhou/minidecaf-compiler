@@ -35,6 +35,60 @@ class IR2asmListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by IR2asmParser#prologue.
+    def enterPrologue(self, ctx:IR2asmParser.PrologueContext):
+        pass
+
+    # Exit a parse tree produced by IR2asmParser#prologue.
+    def exitPrologue(self, ctx:IR2asmParser.PrologueContext):
+        pass
+
+
+    # Enter a parse tree produced by IR2asmParser#epilogue.
+    def enterEpilogue(self, ctx:IR2asmParser.EpilogueContext):
+        pass
+
+    # Exit a parse tree produced by IR2asmParser#epilogue.
+    def exitEpilogue(self, ctx:IR2asmParser.EpilogueContext):
+        pass
+
+
+    # Enter a parse tree produced by IR2asmParser#frameaddr.
+    def enterFrameaddr(self, ctx:IR2asmParser.FrameaddrContext):
+        pass
+
+    # Exit a parse tree produced by IR2asmParser#frameaddr.
+    def exitFrameaddr(self, ctx:IR2asmParser.FrameaddrContext):
+        pass
+
+
+    # Enter a parse tree produced by IR2asmParser#load.
+    def enterLoad(self, ctx:IR2asmParser.LoadContext):
+        pass
+
+    # Exit a parse tree produced by IR2asmParser#load.
+    def exitLoad(self, ctx:IR2asmParser.LoadContext):
+        pass
+
+
+    # Enter a parse tree produced by IR2asmParser#store.
+    def enterStore(self, ctx:IR2asmParser.StoreContext):
+        pass
+
+    # Exit a parse tree produced by IR2asmParser#store.
+    def exitStore(self, ctx:IR2asmParser.StoreContext):
+        pass
+
+
+    # Enter a parse tree produced by IR2asmParser#pop.
+    def enterPop(self, ctx:IR2asmParser.PopContext):
+        pass
+
+    # Exit a parse tree produced by IR2asmParser#pop.
+    def exitPop(self, ctx:IR2asmParser.PopContext):
+        pass
+
+
     # Enter a parse tree produced by IR2asmParser#push.
     def enterPush(self, ctx:IR2asmParser.PushContext):
         pass
