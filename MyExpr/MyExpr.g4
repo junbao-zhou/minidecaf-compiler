@@ -2,16 +2,19 @@ grammar MyExpr;
 
 import MyExprLex;
 
-program: main_fun;
-main_fun:
-	int_type 'main' '(' parameter* ')' '{' statement* '}' EOF;
-
 int_type: 'int';
 
+program: main_fun;
+
+main_fun:
+	int_type 'main' '(' parameter* ')' '{' block_item* '}' EOF;
+
+block_item: statement | declaration;
+
 statement:
-	return_stat			# stat_ret
-	| expression? ';'	# stat_expr
-	| declaration		# stat_declr;
+	return_stat												# stat_ret
+	| expression? ';'										# stat_expr
+	| 'if' '(' expression ')' statement ('else' statement)?	# stat_condition;
 
 declaration: int_type Identifier ('=' expression)? ';';
 
@@ -20,8 +23,12 @@ return_stat: 'return' expression ';';
 expression: assignment;
 
 assignment:
-	logical_or					# assign_none
+	conditional					# assign_none
 	| Identifier '=' expression	# assign;
+
+conditional:
+	logical_or									# condition_none
+	| logical_or '?' expression ':' conditional	# condition;
 
 logical_or:
 	logical_and						# or_none

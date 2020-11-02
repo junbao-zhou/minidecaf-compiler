@@ -5,7 +5,11 @@ program: main_fun;
 main_fun: 'main' '{' instruction* '}';
 
 instruction:
-	prologue
+	label
+	| br
+	| beqz
+	| bnez
+	| prologue
 	| epilogue
 	| frameaddr
 	| load
@@ -16,6 +20,10 @@ instruction:
 	| two_op
 	| one_op;
 
+label: 'LABEL' Identifier;
+br: 'BR' Identifier;
+beqz: 'BEQZ' Identifier;
+bnez: 'BNEZ' Identifier;
 prologue: 'PROLOGUE' Integer;
 epilogue: 'EPILOGUE' Integer;
 frameaddr: 'FRAMEADDR' Integer;

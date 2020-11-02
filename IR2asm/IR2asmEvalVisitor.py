@@ -24,6 +24,30 @@ main:
     def visitInstruction(self, ctx: IR2asmParser.InstructionContext):
         return self.visitChildren(ctx)
 
+    def visitLabel(self, ctx):
+        return f"""
+    {ctx.Identifier().getText()}:
+"""
+
+    def visitBr(self, ctx):
+        return f"""
+    j {ctx.Identifier().getText()}
+"""
+
+    def visitBeqz(self, ctx):
+        return f"""
+    lw t1, 0(sp)
+    addi sp, sp, 4
+    beqz t1, {ctx.Identifier().getText()}
+"""
+
+    def visitBnez(self, ctx):
+        return f"""
+    lw t1, 0(sp)
+    addi sp, sp, 4
+    bnez t1, {ctx.Identifier().getText()}
+"""
+
     def visitPrologue(self, ctx):
         framesize = 8+4*int(ctx.Integer().getText())
         return f"""

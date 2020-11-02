@@ -9,6 +9,11 @@ else:
 
 class MyExprVisitor(ParseTreeVisitor):
 
+    # Visit a parse tree produced by MyExprParser#int_type.
+    def visitInt_type(self, ctx:MyExprParser.Int_typeContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by MyExprParser#program.
     def visitProgram(self, ctx:MyExprParser.ProgramContext):
         return self.visitChildren(ctx)
@@ -19,8 +24,8 @@ class MyExprVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by MyExprParser#int_type.
-    def visitInt_type(self, ctx:MyExprParser.Int_typeContext):
+    # Visit a parse tree produced by MyExprParser#block_item.
+    def visitBlock_item(self, ctx:MyExprParser.Block_itemContext):
         return self.visitChildren(ctx)
 
 
@@ -34,8 +39,8 @@ class MyExprVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by MyExprParser#stat_declr.
-    def visitStat_declr(self, ctx:MyExprParser.Stat_declrContext):
+    # Visit a parse tree produced by MyExprParser#stat_condition.
+    def visitStat_condition(self, ctx:MyExprParser.Stat_conditionContext):
         return self.visitChildren(ctx)
 
 
@@ -61,6 +66,16 @@ class MyExprVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by MyExprParser#assign.
     def visitAssign(self, ctx:MyExprParser.AssignContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MyExprParser#condition_none.
+    def visitCondition_none(self, ctx:MyExprParser.Condition_noneContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MyExprParser#condition.
+    def visitCondition(self, ctx:MyExprParser.ConditionContext):
         return self.visitChildren(ctx)
 
 

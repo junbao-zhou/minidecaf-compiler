@@ -35,6 +35,42 @@ class IR2asmListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by IR2asmParser#label.
+    def enterLabel(self, ctx:IR2asmParser.LabelContext):
+        pass
+
+    # Exit a parse tree produced by IR2asmParser#label.
+    def exitLabel(self, ctx:IR2asmParser.LabelContext):
+        pass
+
+
+    # Enter a parse tree produced by IR2asmParser#br.
+    def enterBr(self, ctx:IR2asmParser.BrContext):
+        pass
+
+    # Exit a parse tree produced by IR2asmParser#br.
+    def exitBr(self, ctx:IR2asmParser.BrContext):
+        pass
+
+
+    # Enter a parse tree produced by IR2asmParser#beqz.
+    def enterBeqz(self, ctx:IR2asmParser.BeqzContext):
+        pass
+
+    # Exit a parse tree produced by IR2asmParser#beqz.
+    def exitBeqz(self, ctx:IR2asmParser.BeqzContext):
+        pass
+
+
+    # Enter a parse tree produced by IR2asmParser#bnez.
+    def enterBnez(self, ctx:IR2asmParser.BnezContext):
+        pass
+
+    # Exit a parse tree produced by IR2asmParser#bnez.
+    def exitBnez(self, ctx:IR2asmParser.BnezContext):
+        pass
+
+
     # Enter a parse tree produced by IR2asmParser#prologue.
     def enterPrologue(self, ctx:IR2asmParser.PrologueContext):
         pass

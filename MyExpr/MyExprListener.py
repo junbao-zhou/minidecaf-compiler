@@ -8,6 +8,15 @@ else:
 # This class defines a complete listener for a parse tree produced by MyExprParser.
 class MyExprListener(ParseTreeListener):
 
+    # Enter a parse tree produced by MyExprParser#int_type.
+    def enterInt_type(self, ctx:MyExprParser.Int_typeContext):
+        pass
+
+    # Exit a parse tree produced by MyExprParser#int_type.
+    def exitInt_type(self, ctx:MyExprParser.Int_typeContext):
+        pass
+
+
     # Enter a parse tree produced by MyExprParser#program.
     def enterProgram(self, ctx:MyExprParser.ProgramContext):
         pass
@@ -26,12 +35,12 @@ class MyExprListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by MyExprParser#int_type.
-    def enterInt_type(self, ctx:MyExprParser.Int_typeContext):
+    # Enter a parse tree produced by MyExprParser#block_item.
+    def enterBlock_item(self, ctx:MyExprParser.Block_itemContext):
         pass
 
-    # Exit a parse tree produced by MyExprParser#int_type.
-    def exitInt_type(self, ctx:MyExprParser.Int_typeContext):
+    # Exit a parse tree produced by MyExprParser#block_item.
+    def exitBlock_item(self, ctx:MyExprParser.Block_itemContext):
         pass
 
 
@@ -53,12 +62,12 @@ class MyExprListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by MyExprParser#stat_declr.
-    def enterStat_declr(self, ctx:MyExprParser.Stat_declrContext):
+    # Enter a parse tree produced by MyExprParser#stat_condition.
+    def enterStat_condition(self, ctx:MyExprParser.Stat_conditionContext):
         pass
 
-    # Exit a parse tree produced by MyExprParser#stat_declr.
-    def exitStat_declr(self, ctx:MyExprParser.Stat_declrContext):
+    # Exit a parse tree produced by MyExprParser#stat_condition.
+    def exitStat_condition(self, ctx:MyExprParser.Stat_conditionContext):
         pass
 
 
@@ -104,6 +113,24 @@ class MyExprListener(ParseTreeListener):
 
     # Exit a parse tree produced by MyExprParser#assign.
     def exitAssign(self, ctx:MyExprParser.AssignContext):
+        pass
+
+
+    # Enter a parse tree produced by MyExprParser#condition_none.
+    def enterCondition_none(self, ctx:MyExprParser.Condition_noneContext):
+        pass
+
+    # Exit a parse tree produced by MyExprParser#condition_none.
+    def exitCondition_none(self, ctx:MyExprParser.Condition_noneContext):
+        pass
+
+
+    # Enter a parse tree produced by MyExprParser#condition.
+    def enterCondition(self, ctx:MyExprParser.ConditionContext):
+        pass
+
+    # Exit a parse tree produced by MyExprParser#condition.
+    def exitCondition(self, ctx:MyExprParser.ConditionContext):
         pass
 
 

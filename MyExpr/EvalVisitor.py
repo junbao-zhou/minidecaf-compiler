@@ -10,8 +10,9 @@ class EvalVisitor(MyExprVisitor):
 
     def visitMain_fun(self, ctx: MyExprParser.Main_funContext):
         self.variable_list = []
+        self.condition_counter = 0
         string = ""
-        for i in ctx.statement():
+        for i in ctx.block_item():
             string += i.accept(self)
         return f"""\
 main{{
@@ -30,6 +31,19 @@ EPILOGUE {self.variable_list.__len__()}
             return f"""\
 {ctx.expression().accept(self)}
 POP
+"""
+
+    def visitStat_condition(self, ctx):
+        self.condition_counter += 1
+        counter = self.condition_counter
+        return f"""\
+{ctx.expression().accept(self)}
+BEQZ else_label{counter}
+{ctx.statement()[0].accept(self)}
+BR end_label{counter}
+LABEL else_label{counter}
+{"" if ctx.statement().__len__() <= 1 else ctx.statement()[1].accept(self)}
+LABEL end_label{counter}
 """
 
     def visitDeclaration(self, ctx: MyExprParser.DeclarationContext):
@@ -63,6 +77,19 @@ RET
 {ctx.expression().accept(self)}
 FRAMEADDR {self.variable_list.index(ctx.Identifier().getText())}
 STORE
+"""
+
+    def visitCondition(self, ctx):
+        self.condition_counter += 1
+        counter = self.condition_counter
+        return f"""\
+{ctx.logical_or().accept(self)}
+BEQZ else_label{counter}
+{ctx.expression().accept(self)}
+BR end_label{counter}
+LABEL else_label{counter}
+{ctx.conditional().accept(self)}
+LABEL end_label{counter}
 """
 
     def visitOr_operate(self, ctx: MyExprParser.Or_operateContext):

@@ -1,2 +1,3 @@
 Integer=1
 Whitespace=2
+Identifier=3
