@@ -35,6 +35,15 @@ class MyExprListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by MyExprParser#compound_statement.
+    def enterCompound_statement(self, ctx:MyExprParser.Compound_statementContext):
+        pass
+
+    # Exit a parse tree produced by MyExprParser#compound_statement.
+    def exitCompound_statement(self, ctx:MyExprParser.Compound_statementContext):
+        pass
+
+
     # Enter a parse tree produced by MyExprParser#block_item.
     def enterBlock_item(self, ctx:MyExprParser.Block_itemContext):
         pass
@@ -68,6 +77,15 @@ class MyExprListener(ParseTreeListener):
 
     # Exit a parse tree produced by MyExprParser#stat_condition.
     def exitStat_condition(self, ctx:MyExprParser.Stat_conditionContext):
+        pass
+
+
+    # Enter a parse tree produced by MyExprParser#stat_compound.
+    def enterStat_compound(self, ctx:MyExprParser.Stat_compoundContext):
+        pass
+
+    # Exit a parse tree produced by MyExprParser#stat_compound.
+    def exitStat_compound(self, ctx:MyExprParser.Stat_compoundContext):
         pass
 
 

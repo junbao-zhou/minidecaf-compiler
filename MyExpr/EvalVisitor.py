@@ -11,18 +11,29 @@ class EvalVisitor(MyExprVisitor):
     def visitMain_fun(self, ctx: MyExprParser.Main_funContext):
         self.variable_list = []
         self.condition_counter = 0
-        string = ""
-        for i in ctx.block_item():
-            string += i.accept(self)
+        self.total_var_num = 0
+        string = ctx.compound_statement().accept(self)
         return f"""\
 main{{
-PROLOGUE {self.variable_list.__len__()}
+PROLOGUE {self.total_var_num}
 {string}
 PUSH 0
 RET
-EPILOGUE {self.variable_list.__len__()}
+EPILOGUE {self.total_var_num}
 }}
 """
+
+    def visitCompound_statement(self, ctx):
+        self.variable_list.append([])
+        string = ''
+        for i in ctx.block_item():
+            string += i.accept(self)
+        tmp_var_num = 0
+        for i in self.variable_list:
+            tmp_var_num += i.__len__()
+        self.total_var_num = max(self.total_var_num, tmp_var_num)
+        del self.variable_list[-1]
+        return string
 
     def visitStat_expr(self, ctx):
         if ctx.expression() is None:
@@ -52,14 +63,17 @@ LABEL end_label{counter}
 PUSH 0"""
         else:
             string = ctx.expression().accept(self)
-        if ctx.Identifier().getText() in self.variable_list:
+        if ctx.Identifier().getText() in self.variable_list[-1]:
             raise Exception(
                 f"indentifier {ctx.Identifier().getText()} has been declared")
         else:
-            self.variable_list.append(ctx.Identifier().getText())
+            self.variable_list[-1].append(ctx.Identifier().getText())
+        previous_var_num = 0
+        for i in self.variable_list[:-1]:
+            previous_var_num += i.__len__()
         return f"""\
 {string}
-FRAMEADDR {self.variable_list.index(ctx.Identifier().getText())}
+FRAMEADDR {previous_var_num + self.variable_list[-1].index(ctx.Identifier().getText())}
 STORE
 POP
 """
@@ -71,11 +85,19 @@ RET
 """
 
     def visitAssign(self, ctx: MyExprParser.AssignContext):
-        if not (ctx.Identifier().getText() in self.variable_list):
+        isFind = False
+        for i in range(1, self.variable_list.__len__() + 1):
+            if ctx.Identifier().getText() in self.variable_list[-i]:
+                isFind = True
+                break
+        if not isFind:
             raise Exception(f"Undefined variable {ctx.Identifier().getText()}")
+        previous_var_num = 0
+        for j in range(i + 1, self.variable_list.__len__() + 1):
+            previous_var_num += self.variable_list[-j].__len__()
         return f"""\
 {ctx.expression().accept(self)}
-FRAMEADDR {self.variable_list.index(ctx.Identifier().getText())}
+FRAMEADDR {previous_var_num + self.variable_list[-i].index(ctx.Identifier().getText())}
 STORE
 """
 
@@ -160,10 +182,17 @@ LAND
         return ctx.expression().accept(self)
 
     def visitPrimaryIdentifier(self, ctx):
-        if not ctx.Identifier().getText() in self.variable_list:
-            raise Exception(
-                f"Undefined variable {ctx.Identifier().getText()}")
+        isFind = False
+        for i in range(1, self.variable_list.__len__() + 1):
+            if ctx.Identifier().getText() in self.variable_list[-i]:
+                isFind = True
+                break
+        if not isFind:
+            raise Exception(f"Undefined variable {ctx.Identifier().getText()}")
+        previous_var_num = 0
+        for j in range(i + 1, self.variable_list.__len__() + 1):
+            previous_var_num += self.variable_list[-j].__len__()
         return f"""\
-FRAMEADDR {self.variable_list.index(ctx.Identifier().getText())}
+FRAMEADDR {previous_var_num + self.variable_list[-i].index(ctx.Identifier().getText())}
 LOAD
 """

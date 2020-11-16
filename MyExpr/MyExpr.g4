@@ -7,14 +7,17 @@ int_type: 'int';
 program: main_fun;
 
 main_fun:
-	int_type 'main' '(' parameter* ')' '{' block_item* '}' EOF;
+	int_type 'main' '(' parameter* ')' compound_statement EOF;
+
+compound_statement: '{' block_item* '}';
 
 block_item: statement | declaration;
 
 statement:
 	return_stat												# stat_ret
 	| expression? ';'										# stat_expr
-	| 'if' '(' expression ')' statement ('else' statement)?	# stat_condition;
+	| 'if' '(' expression ')' statement ('else' statement)?	# stat_condition
+	| compound_statement									# stat_compound;
 
 declaration: int_type Identifier ('=' expression)? ';';
 

@@ -1,9 +1,13 @@
-int main() {
+int main()
+{
     int a = 0;
-    int b = 1;
-    if (a)
-        b = 1;
-    else if (b)
-        b = 2;
-    return b;
+    {
+        int b = 1;
+        a = b;
+    }
+    {
+        int b = 2;
+        a = a + b;
+    }
+    return a;
 }
