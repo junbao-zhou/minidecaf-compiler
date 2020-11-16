@@ -17,7 +17,15 @@ statement:
 	return_stat												# stat_ret
 	| expression? ';'										# stat_expr
 	| 'if' '(' expression ')' statement ('else' statement)?	# stat_condition
-	| compound_statement									# stat_compound;
+	| compound_statement									# stat_compound
+	| 'for' '(' pre_expr = expression? ';' cond_expr = expression? ';' post_expr = expression? ')'
+		statement																				# stat_for_loop_no_declr
+	| 'for' '(' declaration cond_expr = expression? ';' post_expr = expression? ')' statement	#
+		stat_for_loop_declr
+	| 'while' '(' expression ')' statement			# stat_while_loop
+	| 'do' statement 'while' '(' expression ')' ';'	# stat_do_loop
+	| 'break' ';'									# stat_break
+	| 'continue' ';'								# stat_continue;
 
 declaration: int_type Identifier ('=' expression)? ';';
 

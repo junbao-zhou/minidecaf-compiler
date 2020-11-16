@@ -12,6 +12,7 @@ class EvalVisitor(MyExprVisitor):
         self.variable_list = []
         self.condition_counter = 0
         self.total_var_num = 0
+        self.loop_counter = 0
         string = ctx.compound_statement().accept(self)
         return f"""\
 main{{
@@ -56,6 +57,90 @@ LABEL else_label{counter}
 {"" if ctx.statement().__len__() <= 1 else ctx.statement()[1].accept(self)}
 LABEL end_label{counter}
 """
+
+    def visitStat_for_loop_no_declr(self, ctx):
+        self.loop_counter += 1
+        nl = '\n'
+
+        string = f"""
+{'' if ctx.pre_expr is None else (ctx.pre_expr.accept(self) + nl + 'POP')}
+LABEL BEGINLOOP_LABEL_{self.loop_counter}
+{'PUSH 1' if ctx.cond_expr is None else ctx.cond_expr.accept(self)}
+BEQZ BREAK_LABEL_{self.loop_counter}
+{ctx.statement().accept(self)}
+LABEL CONTINUE_LABEL_{self.loop_counter}
+{'' if ctx.post_expr is None else (ctx.post_expr.accept(self)+ nl + 'POP')}
+BR BEGINLOOP_LABEL_{self.loop_counter}
+LABEL BREAK_LABEL_{self.loop_counter}
+"""
+
+        self.loop_counter -= 1
+        return string
+
+    def visitStat_for_loop_declr(self, ctx):
+        self.loop_counter += 1
+        nl = '\n'
+
+        self.variable_list.append([])
+
+        string = f"""
+{ctx.declaration().accept(self)}
+LABEL BEGINLOOP_LABEL_{self.loop_counter}
+{'PUSH 1' if ctx.cond_expr is None else (ctx.cond_expr.accept(self))}
+BEQZ BREAK_LABEL_{self.loop_counter}
+{ctx.statement().accept(self)}
+LABEL CONTINUE_LABEL_{self.loop_counter}
+{'' if ctx.post_expr is None else (ctx.post_expr.accept(self) + nl + 'POP')}
+BR BEGINLOOP_LABEL_{self.loop_counter}
+LABEL BREAK_LABEL_{self.loop_counter}
+"""
+        tmp_var_num = 0
+        for i in self.variable_list:
+            tmp_var_num += i.__len__()
+        self.total_var_num = max(self.total_var_num, tmp_var_num)
+        del self.variable_list[-1]
+
+        self.loop_counter -= 1
+        return string
+
+    def visitStat_while_loop(self, ctx):
+        self.loop_counter += 1
+        string = f"""
+LABEL BEGINLOOP_LABEL_{self.loop_counter}
+{ctx.expression().accept(self)}
+BEQZ BREAK_LABEL_{self.loop_counter}
+{ctx.statement().accept(self)}
+LABEL CONTINUE_LABEL_{self.loop_counter}
+BR BEGINLOOP_LABEL_{self.loop_counter}
+LABEL BREAK_LABEL_{self.loop_counter}
+"""
+        self.loop_counter -= 1
+        return string
+
+    def visitStat_break(self, ctx):
+        return f"""
+BR BREAK_LABEL_{self.loop_counter}
+"""
+
+    def visitStat_continue(self, ctx):
+        return f"""
+BR CONTINUE_LABEL_{self.loop_counter}
+"""
+
+    def visitStat_do_loop(self, ctx):
+        self.loop_counter += 1
+        string = f"""
+{ctx.statement().accept(self)}
+LABEL BEGINLOOP_LABEL_{self.loop_counter}
+{ctx.expression().accept(self)}
+BEQZ BREAK_LABEL_{self.loop_counter}
+{ctx.statement().accept(self)}
+LABEL CONTINUE_LABEL_{self.loop_counter}
+BR BEGINLOOP_LABEL_{self.loop_counter}
+LABEL BREAK_LABEL_{self.loop_counter}
+"""
+        self.loop_counter -= 1
+        return string
 
     def visitDeclaration(self, ctx: MyExprParser.DeclarationContext):
         if ctx.expression() is None:
