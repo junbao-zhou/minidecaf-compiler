@@ -1,11 +1,16 @@
 grammar IR2asm;
 import IR2asmLex;
-program: main_fun;
+program: (func | global_var)*;
 
-main_fun: 'main' '{' instruction* '}';
+global_var: Identifier '=' (Integer)?;
+
+func: Identifier '{' instruction* '}';
 
 instruction:
-	label
+	globaladdr
+	| store_reg
+	| call
+	| label
 	| br
 	| beqz
 	| bnez
@@ -20,6 +25,9 @@ instruction:
 	| two_op
 	| one_op;
 
+globaladdr: 'GLOBALADDR' Identifier;
+store_reg: 'STORE_REG' Identifier;
+call: 'CALL' Identifier;
 label: 'LABEL' Identifier;
 br: 'BR' Identifier;
 beqz: 'BEQZ' Identifier;

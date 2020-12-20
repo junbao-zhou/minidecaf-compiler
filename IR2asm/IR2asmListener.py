@@ -17,12 +17,21 @@ class IR2asmListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by IR2asmParser#main_fun.
-    def enterMain_fun(self, ctx:IR2asmParser.Main_funContext):
+    # Enter a parse tree produced by IR2asmParser#global_var.
+    def enterGlobal_var(self, ctx:IR2asmParser.Global_varContext):
         pass
 
-    # Exit a parse tree produced by IR2asmParser#main_fun.
-    def exitMain_fun(self, ctx:IR2asmParser.Main_funContext):
+    # Exit a parse tree produced by IR2asmParser#global_var.
+    def exitGlobal_var(self, ctx:IR2asmParser.Global_varContext):
+        pass
+
+
+    # Enter a parse tree produced by IR2asmParser#func.
+    def enterFunc(self, ctx:IR2asmParser.FuncContext):
+        pass
+
+    # Exit a parse tree produced by IR2asmParser#func.
+    def exitFunc(self, ctx:IR2asmParser.FuncContext):
         pass
 
 
@@ -32,6 +41,33 @@ class IR2asmListener(ParseTreeListener):
 
     # Exit a parse tree produced by IR2asmParser#instruction.
     def exitInstruction(self, ctx:IR2asmParser.InstructionContext):
+        pass
+
+
+    # Enter a parse tree produced by IR2asmParser#globaladdr.
+    def enterGlobaladdr(self, ctx:IR2asmParser.GlobaladdrContext):
+        pass
+
+    # Exit a parse tree produced by IR2asmParser#globaladdr.
+    def exitGlobaladdr(self, ctx:IR2asmParser.GlobaladdrContext):
+        pass
+
+
+    # Enter a parse tree produced by IR2asmParser#store_reg.
+    def enterStore_reg(self, ctx:IR2asmParser.Store_regContext):
+        pass
+
+    # Exit a parse tree produced by IR2asmParser#store_reg.
+    def exitStore_reg(self, ctx:IR2asmParser.Store_regContext):
+        pass
+
+
+    # Enter a parse tree produced by IR2asmParser#call.
+    def enterCall(self, ctx:IR2asmParser.CallContext):
+        pass
+
+    # Exit a parse tree produced by IR2asmParser#call.
+    def exitCall(self, ctx:IR2asmParser.CallContext):
         pass
 
 

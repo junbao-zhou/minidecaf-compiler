@@ -7,70 +7,83 @@ import sys
 
 def serializedATN():
     with StringIO() as buf:
-        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3$")
-        buf.write("\u00b5\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7")
+        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\'")
+        buf.write("\u00d3\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7")
         buf.write("\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4\f\t\f\4\r\t\r\4\16")
         buf.write("\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22\4\23\t\23")
         buf.write("\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31")
         buf.write("\t\31\4\32\t\32\4\33\t\33\4\34\t\34\4\35\t\35\4\36\t\36")
-        buf.write("\4\37\t\37\4 \t \4!\t!\4\"\t\"\3\2\3\2\3\3\3\3\3\3\7\3")
-        buf.write("J\n\3\f\3\16\3M\13\3\3\3\3\3\3\4\3\4\3\4\3\4\3\4\3\4\3")
-        buf.write("\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\5\4_\n\4\3\5\3\5\3\5\3")
-        buf.write("\6\3\6\3\6\3\7\3\7\3\7\3\b\3\b\3\b\3\t\3\t\3\t\3\n\3\n")
-        buf.write("\3\n\3\13\3\13\3\13\3\f\3\f\3\r\3\r\3\16\3\16\3\17\3\17")
-        buf.write("\3\17\3\20\3\20\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\21")
-        buf.write("\3\21\3\21\3\21\3\21\3\21\5\21\u008e\n\21\3\22\3\22\3")
-        buf.write("\22\5\22\u0093\n\22\3\23\3\23\3\24\3\24\3\25\3\25\3\26")
-        buf.write("\3\26\3\27\3\27\3\30\3\30\3\31\3\31\3\32\3\32\3\33\3\33")
-        buf.write("\3\34\3\34\3\35\3\35\3\36\3\36\3\37\3\37\3 \3 \3!\3!\3")
-        buf.write("\"\3\"\3\"\2\2#\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36")
-        buf.write(" \"$&(*,.\60\62\64\668:<>@B\2\2\2\u00af\2D\3\2\2\2\4F")
-        buf.write("\3\2\2\2\6^\3\2\2\2\b`\3\2\2\2\nc\3\2\2\2\ff\3\2\2\2\16")
-        buf.write("i\3\2\2\2\20l\3\2\2\2\22o\3\2\2\2\24r\3\2\2\2\26u\3\2")
-        buf.write("\2\2\30w\3\2\2\2\32y\3\2\2\2\34{\3\2\2\2\36~\3\2\2\2 ")
-        buf.write("\u008d\3\2\2\2\"\u0092\3\2\2\2$\u0094\3\2\2\2&\u0096\3")
-        buf.write("\2\2\2(\u0098\3\2\2\2*\u009a\3\2\2\2,\u009c\3\2\2\2.\u009e")
-        buf.write("\3\2\2\2\60\u00a0\3\2\2\2\62\u00a2\3\2\2\2\64\u00a4\3")
-        buf.write("\2\2\2\66\u00a6\3\2\2\28\u00a8\3\2\2\2:\u00aa\3\2\2\2")
-        buf.write("<\u00ac\3\2\2\2>\u00ae\3\2\2\2@\u00b0\3\2\2\2B\u00b2\3")
-        buf.write("\2\2\2DE\5\4\3\2E\3\3\2\2\2FG\7\3\2\2GK\7\4\2\2HJ\5\6")
-        buf.write("\4\2IH\3\2\2\2JM\3\2\2\2KI\3\2\2\2KL\3\2\2\2LN\3\2\2\2")
-        buf.write("MK\3\2\2\2NO\7\5\2\2O\5\3\2\2\2P_\5\b\5\2Q_\5\n\6\2R_")
-        buf.write("\5\f\7\2S_\5\16\b\2T_\5\20\t\2U_\5\22\n\2V_\5\24\13\2")
-        buf.write("W_\5\26\f\2X_\5\30\r\2Y_\5\32\16\2Z_\5\34\17\2[_\5\36")
-        buf.write("\20\2\\_\5 \21\2]_\5\"\22\2^P\3\2\2\2^Q\3\2\2\2^R\3\2")
-        buf.write("\2\2^S\3\2\2\2^T\3\2\2\2^U\3\2\2\2^V\3\2\2\2^W\3\2\2\2")
-        buf.write("^X\3\2\2\2^Y\3\2\2\2^Z\3\2\2\2^[\3\2\2\2^\\\3\2\2\2^]")
-        buf.write("\3\2\2\2_\7\3\2\2\2`a\7\6\2\2ab\7$\2\2b\t\3\2\2\2cd\7")
-        buf.write("\7\2\2de\7$\2\2e\13\3\2\2\2fg\7\b\2\2gh\7$\2\2h\r\3\2")
-        buf.write("\2\2ij\7\t\2\2jk\7$\2\2k\17\3\2\2\2lm\7\n\2\2mn\7\"\2")
-        buf.write("\2n\21\3\2\2\2op\7\13\2\2pq\7\"\2\2q\23\3\2\2\2rs\7\f")
-        buf.write("\2\2st\7\"\2\2t\25\3\2\2\2uv\7\r\2\2v\27\3\2\2\2wx\7\16")
-        buf.write("\2\2x\31\3\2\2\2yz\7\17\2\2z\33\3\2\2\2{|\7\20\2\2|}\7")
-        buf.write("\"\2\2}\35\3\2\2\2~\177\7\21\2\2\177\37\3\2\2\2\u0080")
-        buf.write("\u008e\5$\23\2\u0081\u008e\5&\24\2\u0082\u008e\5(\25\2")
-        buf.write("\u0083\u008e\5*\26\2\u0084\u008e\5,\27\2\u0085\u008e\5")
-        buf.write(".\30\2\u0086\u008e\5\60\31\2\u0087\u008e\5\62\32\2\u0088")
-        buf.write("\u008e\5\64\33\2\u0089\u008e\5\66\34\2\u008a\u008e\58")
-        buf.write("\35\2\u008b\u008e\5:\36\2\u008c\u008e\5<\37\2\u008d\u0080")
-        buf.write("\3\2\2\2\u008d\u0081\3\2\2\2\u008d\u0082\3\2\2\2\u008d")
-        buf.write("\u0083\3\2\2\2\u008d\u0084\3\2\2\2\u008d\u0085\3\2\2\2")
-        buf.write("\u008d\u0086\3\2\2\2\u008d\u0087\3\2\2\2\u008d\u0088\3")
-        buf.write("\2\2\2\u008d\u0089\3\2\2\2\u008d\u008a\3\2\2\2\u008d\u008b")
-        buf.write("\3\2\2\2\u008d\u008c\3\2\2\2\u008e!\3\2\2\2\u008f\u0093")
-        buf.write("\5> \2\u0090\u0093\5@!\2\u0091\u0093\5B\"\2\u0092\u008f")
-        buf.write("\3\2\2\2\u0092\u0090\3\2\2\2\u0092\u0091\3\2\2\2\u0093")
-        buf.write("#\3\2\2\2\u0094\u0095\7\22\2\2\u0095%\3\2\2\2\u0096\u0097")
-        buf.write("\7\23\2\2\u0097\'\3\2\2\2\u0098\u0099\7\24\2\2\u0099)")
-        buf.write("\3\2\2\2\u009a\u009b\7\25\2\2\u009b+\3\2\2\2\u009c\u009d")
-        buf.write("\7\26\2\2\u009d-\3\2\2\2\u009e\u009f\7\27\2\2\u009f/\3")
-        buf.write("\2\2\2\u00a0\u00a1\7\30\2\2\u00a1\61\3\2\2\2\u00a2\u00a3")
-        buf.write("\7\31\2\2\u00a3\63\3\2\2\2\u00a4\u00a5\7\32\2\2\u00a5")
-        buf.write("\65\3\2\2\2\u00a6\u00a7\7\33\2\2\u00a7\67\3\2\2\2\u00a8")
-        buf.write("\u00a9\7\34\2\2\u00a99\3\2\2\2\u00aa\u00ab\7\35\2\2\u00ab")
-        buf.write(";\3\2\2\2\u00ac\u00ad\7\36\2\2\u00ad=\3\2\2\2\u00ae\u00af")
-        buf.write("\7\37\2\2\u00af?\3\2\2\2\u00b0\u00b1\7 \2\2\u00b1A\3\2")
-        buf.write("\2\2\u00b2\u00b3\7!\2\2\u00b3C\3\2\2\2\6K^\u008d\u0092")
+        buf.write("\4\37\t\37\4 \t \4!\t!\4\"\t\"\4#\t#\4$\t$\4%\t%\4&\t")
+        buf.write("&\3\2\3\2\7\2O\n\2\f\2\16\2R\13\2\3\3\3\3\3\3\5\3W\n\3")
+        buf.write("\3\4\3\4\3\4\7\4\\\n\4\f\4\16\4_\13\4\3\4\3\4\3\5\3\5")
+        buf.write("\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3")
+        buf.write("\5\3\5\5\5t\n\5\3\6\3\6\3\6\3\7\3\7\3\7\3\b\3\b\3\b\3")
+        buf.write("\t\3\t\3\t\3\n\3\n\3\n\3\13\3\13\3\13\3\f\3\f\3\f\3\r")
+        buf.write("\3\r\3\r\3\16\3\16\3\16\3\17\3\17\3\17\3\20\3\20\3\21")
+        buf.write("\3\21\3\22\3\22\3\23\3\23\3\23\3\24\3\24\3\25\3\25\3\25")
+        buf.write("\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\5\25")
+        buf.write("\u00ac\n\25\3\26\3\26\3\26\5\26\u00b1\n\26\3\27\3\27\3")
+        buf.write("\30\3\30\3\31\3\31\3\32\3\32\3\33\3\33\3\34\3\34\3\35")
+        buf.write("\3\35\3\36\3\36\3\37\3\37\3 \3 \3!\3!\3\"\3\"\3#\3#\3")
+        buf.write("$\3$\3%\3%\3&\3&\3&\2\2\'\2\4\6\b\n\f\16\20\22\24\26\30")
+        buf.write("\32\34\36 \"$&(*,.\60\62\64\668:<>@BDFHJ\2\2\2\u00cf\2")
+        buf.write("P\3\2\2\2\4S\3\2\2\2\6X\3\2\2\2\bs\3\2\2\2\nu\3\2\2\2")
+        buf.write("\fx\3\2\2\2\16{\3\2\2\2\20~\3\2\2\2\22\u0081\3\2\2\2\24")
+        buf.write("\u0084\3\2\2\2\26\u0087\3\2\2\2\30\u008a\3\2\2\2\32\u008d")
+        buf.write("\3\2\2\2\34\u0090\3\2\2\2\36\u0093\3\2\2\2 \u0095\3\2")
+        buf.write("\2\2\"\u0097\3\2\2\2$\u0099\3\2\2\2&\u009c\3\2\2\2(\u00ab")
+        buf.write("\3\2\2\2*\u00b0\3\2\2\2,\u00b2\3\2\2\2.\u00b4\3\2\2\2")
+        buf.write("\60\u00b6\3\2\2\2\62\u00b8\3\2\2\2\64\u00ba\3\2\2\2\66")
+        buf.write("\u00bc\3\2\2\28\u00be\3\2\2\2:\u00c0\3\2\2\2<\u00c2\3")
+        buf.write("\2\2\2>\u00c4\3\2\2\2@\u00c6\3\2\2\2B\u00c8\3\2\2\2D\u00ca")
+        buf.write("\3\2\2\2F\u00cc\3\2\2\2H\u00ce\3\2\2\2J\u00d0\3\2\2\2")
+        buf.write("LO\5\6\4\2MO\5\4\3\2NL\3\2\2\2NM\3\2\2\2OR\3\2\2\2PN\3")
+        buf.write("\2\2\2PQ\3\2\2\2Q\3\3\2\2\2RP\3\2\2\2ST\7\'\2\2TV\7\3")
+        buf.write("\2\2UW\7%\2\2VU\3\2\2\2VW\3\2\2\2W\5\3\2\2\2XY\7\'\2\2")
+        buf.write("Y]\7\4\2\2Z\\\5\b\5\2[Z\3\2\2\2\\_\3\2\2\2][\3\2\2\2]")
+        buf.write("^\3\2\2\2^`\3\2\2\2_]\3\2\2\2`a\7\5\2\2a\7\3\2\2\2bt\5")
+        buf.write("\n\6\2ct\5\f\7\2dt\5\16\b\2et\5\20\t\2ft\5\22\n\2gt\5")
+        buf.write("\24\13\2ht\5\26\f\2it\5\30\r\2jt\5\32\16\2kt\5\34\17\2")
+        buf.write("lt\5\36\20\2mt\5 \21\2nt\5\"\22\2ot\5$\23\2pt\5&\24\2")
+        buf.write("qt\5(\25\2rt\5*\26\2sb\3\2\2\2sc\3\2\2\2sd\3\2\2\2se\3")
+        buf.write("\2\2\2sf\3\2\2\2sg\3\2\2\2sh\3\2\2\2si\3\2\2\2sj\3\2\2")
+        buf.write("\2sk\3\2\2\2sl\3\2\2\2sm\3\2\2\2sn\3\2\2\2so\3\2\2\2s")
+        buf.write("p\3\2\2\2sq\3\2\2\2sr\3\2\2\2t\t\3\2\2\2uv\7\6\2\2vw\7")
+        buf.write("\'\2\2w\13\3\2\2\2xy\7\7\2\2yz\7\'\2\2z\r\3\2\2\2{|\7")
+        buf.write("\b\2\2|}\7\'\2\2}\17\3\2\2\2~\177\7\t\2\2\177\u0080\7")
+        buf.write("\'\2\2\u0080\21\3\2\2\2\u0081\u0082\7\n\2\2\u0082\u0083")
+        buf.write("\7\'\2\2\u0083\23\3\2\2\2\u0084\u0085\7\13\2\2\u0085\u0086")
+        buf.write("\7\'\2\2\u0086\25\3\2\2\2\u0087\u0088\7\f\2\2\u0088\u0089")
+        buf.write("\7\'\2\2\u0089\27\3\2\2\2\u008a\u008b\7\r\2\2\u008b\u008c")
+        buf.write("\7%\2\2\u008c\31\3\2\2\2\u008d\u008e\7\16\2\2\u008e\u008f")
+        buf.write("\7%\2\2\u008f\33\3\2\2\2\u0090\u0091\7\17\2\2\u0091\u0092")
+        buf.write("\7%\2\2\u0092\35\3\2\2\2\u0093\u0094\7\20\2\2\u0094\37")
+        buf.write("\3\2\2\2\u0095\u0096\7\21\2\2\u0096!\3\2\2\2\u0097\u0098")
+        buf.write("\7\22\2\2\u0098#\3\2\2\2\u0099\u009a\7\23\2\2\u009a\u009b")
+        buf.write("\7%\2\2\u009b%\3\2\2\2\u009c\u009d\7\24\2\2\u009d\'\3")
+        buf.write("\2\2\2\u009e\u00ac\5,\27\2\u009f\u00ac\5.\30\2\u00a0\u00ac")
+        buf.write("\5\60\31\2\u00a1\u00ac\5\62\32\2\u00a2\u00ac\5\64\33\2")
+        buf.write("\u00a3\u00ac\5\66\34\2\u00a4\u00ac\58\35\2\u00a5\u00ac")
+        buf.write("\5:\36\2\u00a6\u00ac\5<\37\2\u00a7\u00ac\5> \2\u00a8\u00ac")
+        buf.write("\5@!\2\u00a9\u00ac\5B\"\2\u00aa\u00ac\5D#\2\u00ab\u009e")
+        buf.write("\3\2\2\2\u00ab\u009f\3\2\2\2\u00ab\u00a0\3\2\2\2\u00ab")
+        buf.write("\u00a1\3\2\2\2\u00ab\u00a2\3\2\2\2\u00ab\u00a3\3\2\2\2")
+        buf.write("\u00ab\u00a4\3\2\2\2\u00ab\u00a5\3\2\2\2\u00ab\u00a6\3")
+        buf.write("\2\2\2\u00ab\u00a7\3\2\2\2\u00ab\u00a8\3\2\2\2\u00ab\u00a9")
+        buf.write("\3\2\2\2\u00ab\u00aa\3\2\2\2\u00ac)\3\2\2\2\u00ad\u00b1")
+        buf.write("\5F$\2\u00ae\u00b1\5H%\2\u00af\u00b1\5J&\2\u00b0\u00ad")
+        buf.write("\3\2\2\2\u00b0\u00ae\3\2\2\2\u00b0\u00af\3\2\2\2\u00b1")
+        buf.write("+\3\2\2\2\u00b2\u00b3\7\25\2\2\u00b3-\3\2\2\2\u00b4\u00b5")
+        buf.write("\7\26\2\2\u00b5/\3\2\2\2\u00b6\u00b7\7\27\2\2\u00b7\61")
+        buf.write("\3\2\2\2\u00b8\u00b9\7\30\2\2\u00b9\63\3\2\2\2\u00ba\u00bb")
+        buf.write("\7\31\2\2\u00bb\65\3\2\2\2\u00bc\u00bd\7\32\2\2\u00bd")
+        buf.write("\67\3\2\2\2\u00be\u00bf\7\33\2\2\u00bf9\3\2\2\2\u00c0")
+        buf.write("\u00c1\7\34\2\2\u00c1;\3\2\2\2\u00c2\u00c3\7\35\2\2\u00c3")
+        buf.write("=\3\2\2\2\u00c4\u00c5\7\36\2\2\u00c5?\3\2\2\2\u00c6\u00c7")
+        buf.write("\7\37\2\2\u00c7A\3\2\2\2\u00c8\u00c9\7 \2\2\u00c9C\3\2")
+        buf.write("\2\2\u00ca\u00cb\7!\2\2\u00cbE\3\2\2\2\u00cc\u00cd\7\"")
+        buf.write("\2\2\u00cdG\3\2\2\2\u00ce\u00cf\7#\2\2\u00cfI\3\2\2\2")
+        buf.write("\u00d0\u00d1\7$\2\2\u00d1K\3\2\2\2\tNPV]s\u00ab\u00b0")
         return buf.getvalue()
 
 
@@ -84,12 +97,12 @@ class IR2asmParser ( Parser ):
 
     sharedContextCache = PredictionContextCache()
 
-    literalNames = [ "<INVALID>", "'main'", "'{'", "'}'", "'LABEL'", "'BR'", 
-                     "'BEQZ'", "'BNEZ'", "'PROLOGUE'", "'EPILOGUE'", "'FRAMEADDR'", 
-                     "'LOAD'", "'STORE'", "'POP'", "'PUSH'", "'RET'", "'LOR'", 
-                     "'LAND'", "'EQ'", "'NE'", "'LT'", "'GT'", "'LE'", "'GE'", 
-                     "'ADD'", "'SUB'", "'MUL'", "'DIV'", "'REM'", "'NEG'", 
-                     "'NOT'", "'LNOT'" ]
+    literalNames = [ "<INVALID>", "'='", "'{'", "'}'", "'GLOBALADDR'", "'STORE_REG'", 
+                     "'CALL'", "'LABEL'", "'BR'", "'BEQZ'", "'BNEZ'", "'PROLOGUE'", 
+                     "'EPILOGUE'", "'FRAMEADDR'", "'LOAD'", "'STORE'", "'POP'", 
+                     "'PUSH'", "'RET'", "'LOR'", "'LAND'", "'EQ'", "'NE'", 
+                     "'LT'", "'GT'", "'LE'", "'GE'", "'ADD'", "'SUB'", "'MUL'", 
+                     "'DIV'", "'REM'", "'NEG'", "'NOT'", "'LNOT'" ]
 
     symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
@@ -99,47 +112,53 @@ class IR2asmParser ( Parser ):
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "Integer", "Whitespace", "Identifier" ]
+                      "<INVALID>", "<INVALID>", "<INVALID>", "Integer", 
+                      "Whitespace", "Identifier" ]
 
     RULE_program = 0
-    RULE_main_fun = 1
-    RULE_instruction = 2
-    RULE_label = 3
-    RULE_br = 4
-    RULE_beqz = 5
-    RULE_bnez = 6
-    RULE_prologue = 7
-    RULE_epilogue = 8
-    RULE_frameaddr = 9
-    RULE_load = 10
-    RULE_store = 11
-    RULE_pop = 12
-    RULE_push = 13
-    RULE_ret = 14
-    RULE_two_op = 15
-    RULE_one_op = 16
-    RULE_lor = 17
-    RULE_land = 18
-    RULE_eq = 19
-    RULE_ne = 20
-    RULE_lt = 21
-    RULE_gt = 22
-    RULE_le = 23
-    RULE_ge = 24
-    RULE_add = 25
-    RULE_sub = 26
-    RULE_mul = 27
-    RULE_div = 28
-    RULE_rem = 29
-    RULE_neg = 30
-    RULE_bitwise = 31
-    RULE_lnot = 32
+    RULE_global_var = 1
+    RULE_func = 2
+    RULE_instruction = 3
+    RULE_globaladdr = 4
+    RULE_store_reg = 5
+    RULE_call = 6
+    RULE_label = 7
+    RULE_br = 8
+    RULE_beqz = 9
+    RULE_bnez = 10
+    RULE_prologue = 11
+    RULE_epilogue = 12
+    RULE_frameaddr = 13
+    RULE_load = 14
+    RULE_store = 15
+    RULE_pop = 16
+    RULE_push = 17
+    RULE_ret = 18
+    RULE_two_op = 19
+    RULE_one_op = 20
+    RULE_lor = 21
+    RULE_land = 22
+    RULE_eq = 23
+    RULE_ne = 24
+    RULE_lt = 25
+    RULE_gt = 26
+    RULE_le = 27
+    RULE_ge = 28
+    RULE_add = 29
+    RULE_sub = 30
+    RULE_mul = 31
+    RULE_div = 32
+    RULE_rem = 33
+    RULE_neg = 34
+    RULE_bitwise = 35
+    RULE_lnot = 36
 
-    ruleNames =  [ "program", "main_fun", "instruction", "label", "br", 
-                   "beqz", "bnez", "prologue", "epilogue", "frameaddr", 
-                   "load", "store", "pop", "push", "ret", "two_op", "one_op", 
-                   "lor", "land", "eq", "ne", "lt", "gt", "le", "ge", "add", 
-                   "sub", "mul", "div", "rem", "neg", "bitwise", "lnot" ]
+    ruleNames =  [ "program", "global_var", "func", "instruction", "globaladdr", 
+                   "store_reg", "call", "label", "br", "beqz", "bnez", "prologue", 
+                   "epilogue", "frameaddr", "load", "store", "pop", "push", 
+                   "ret", "two_op", "one_op", "lor", "land", "eq", "ne", 
+                   "lt", "gt", "le", "ge", "add", "sub", "mul", "div", "rem", 
+                   "neg", "bitwise", "lnot" ]
 
     EOF = Token.EOF
     T__0=1
@@ -173,9 +192,12 @@ class IR2asmParser ( Parser ):
     T__28=29
     T__29=30
     T__30=31
-    Integer=32
-    Whitespace=33
-    Identifier=34
+    T__31=32
+    T__32=33
+    T__33=34
+    Integer=35
+    Whitespace=36
+    Identifier=37
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
@@ -191,8 +213,18 @@ class IR2asmParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def main_fun(self):
-            return self.getTypedRuleContext(IR2asmParser.Main_funContext,0)
+        def func(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(IR2asmParser.FuncContext)
+            else:
+                return self.getTypedRuleContext(IR2asmParser.FuncContext,i)
+
+
+        def global_var(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(IR2asmParser.Global_varContext)
+            else:
+                return self.getTypedRuleContext(IR2asmParser.Global_varContext,i)
 
 
         def getRuleIndex(self):
@@ -219,10 +251,31 @@ class IR2asmParser ( Parser ):
 
         localctx = IR2asmParser.ProgramContext(self, self._ctx, self.state)
         self.enterRule(localctx, 0, self.RULE_program)
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 66
-            self.main_fun()
+            self.state = 78
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            while _la==IR2asmParser.Identifier:
+                self.state = 76
+                self._errHandler.sync(self)
+                la_ = self._interp.adaptivePredict(self._input,0,self._ctx)
+                if la_ == 1:
+                    self.state = 74
+                    self.func()
+                    pass
+
+                elif la_ == 2:
+                    self.state = 75
+                    self.global_var()
+                    pass
+
+
+                self.state = 80
+                self._errHandler.sync(self)
+                _la = self._input.LA(1)
+
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -231,11 +284,73 @@ class IR2asmParser ( Parser ):
             self.exitRule()
         return localctx
 
-    class Main_funContext(ParserRuleContext):
+    class Global_varContext(ParserRuleContext):
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
+
+        def Identifier(self):
+            return self.getToken(IR2asmParser.Identifier, 0)
+
+        def Integer(self):
+            return self.getToken(IR2asmParser.Integer, 0)
+
+        def getRuleIndex(self):
+            return IR2asmParser.RULE_global_var
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterGlobal_var" ):
+                listener.enterGlobal_var(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitGlobal_var" ):
+                listener.exitGlobal_var(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitGlobal_var" ):
+                return visitor.visitGlobal_var(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def global_var(self):
+
+        localctx = IR2asmParser.Global_varContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 2, self.RULE_global_var)
+        self._la = 0 # Token type
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 81
+            self.match(IR2asmParser.Identifier)
+            self.state = 82
+            self.match(IR2asmParser.T__0)
+            self.state = 84
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            if _la==IR2asmParser.Integer:
+                self.state = 83
+                self.match(IR2asmParser.Integer)
+
+
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+    class FuncContext(ParserRuleContext):
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def Identifier(self):
+            return self.getToken(IR2asmParser.Identifier, 0)
 
         def instruction(self, i:int=None):
             if i is None:
@@ -245,47 +360,47 @@ class IR2asmParser ( Parser ):
 
 
         def getRuleIndex(self):
-            return IR2asmParser.RULE_main_fun
+            return IR2asmParser.RULE_func
 
         def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterMain_fun" ):
-                listener.enterMain_fun(self)
+            if hasattr( listener, "enterFunc" ):
+                listener.enterFunc(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitMain_fun" ):
-                listener.exitMain_fun(self)
+            if hasattr( listener, "exitFunc" ):
+                listener.exitFunc(self)
 
         def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitMain_fun" ):
-                return visitor.visitMain_fun(self)
+            if hasattr( visitor, "visitFunc" ):
+                return visitor.visitFunc(self)
             else:
                 return visitor.visitChildren(self)
 
 
 
 
-    def main_fun(self):
+    def func(self):
 
-        localctx = IR2asmParser.Main_funContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 2, self.RULE_main_fun)
+        localctx = IR2asmParser.FuncContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 4, self.RULE_func)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 68
-            self.match(IR2asmParser.T__0)
-            self.state = 69
+            self.state = 86
+            self.match(IR2asmParser.Identifier)
+            self.state = 87
             self.match(IR2asmParser.T__1)
-            self.state = 73
+            self.state = 91
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << IR2asmParser.T__3) | (1 << IR2asmParser.T__4) | (1 << IR2asmParser.T__5) | (1 << IR2asmParser.T__6) | (1 << IR2asmParser.T__7) | (1 << IR2asmParser.T__8) | (1 << IR2asmParser.T__9) | (1 << IR2asmParser.T__10) | (1 << IR2asmParser.T__11) | (1 << IR2asmParser.T__12) | (1 << IR2asmParser.T__13) | (1 << IR2asmParser.T__14) | (1 << IR2asmParser.T__15) | (1 << IR2asmParser.T__16) | (1 << IR2asmParser.T__17) | (1 << IR2asmParser.T__18) | (1 << IR2asmParser.T__19) | (1 << IR2asmParser.T__20) | (1 << IR2asmParser.T__21) | (1 << IR2asmParser.T__22) | (1 << IR2asmParser.T__23) | (1 << IR2asmParser.T__24) | (1 << IR2asmParser.T__25) | (1 << IR2asmParser.T__26) | (1 << IR2asmParser.T__27) | (1 << IR2asmParser.T__28) | (1 << IR2asmParser.T__29) | (1 << IR2asmParser.T__30))) != 0):
-                self.state = 70
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << IR2asmParser.T__3) | (1 << IR2asmParser.T__4) | (1 << IR2asmParser.T__5) | (1 << IR2asmParser.T__6) | (1 << IR2asmParser.T__7) | (1 << IR2asmParser.T__8) | (1 << IR2asmParser.T__9) | (1 << IR2asmParser.T__10) | (1 << IR2asmParser.T__11) | (1 << IR2asmParser.T__12) | (1 << IR2asmParser.T__13) | (1 << IR2asmParser.T__14) | (1 << IR2asmParser.T__15) | (1 << IR2asmParser.T__16) | (1 << IR2asmParser.T__17) | (1 << IR2asmParser.T__18) | (1 << IR2asmParser.T__19) | (1 << IR2asmParser.T__20) | (1 << IR2asmParser.T__21) | (1 << IR2asmParser.T__22) | (1 << IR2asmParser.T__23) | (1 << IR2asmParser.T__24) | (1 << IR2asmParser.T__25) | (1 << IR2asmParser.T__26) | (1 << IR2asmParser.T__27) | (1 << IR2asmParser.T__28) | (1 << IR2asmParser.T__29) | (1 << IR2asmParser.T__30) | (1 << IR2asmParser.T__31) | (1 << IR2asmParser.T__32) | (1 << IR2asmParser.T__33))) != 0):
+                self.state = 88
                 self.instruction()
-                self.state = 75
+                self.state = 93
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
-            self.state = 76
+            self.state = 94
             self.match(IR2asmParser.T__2)
         except RecognitionException as re:
             localctx.exception = re
@@ -300,6 +415,18 @@ class IR2asmParser ( Parser ):
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
+
+        def globaladdr(self):
+            return self.getTypedRuleContext(IR2asmParser.GlobaladdrContext,0)
+
+
+        def store_reg(self):
+            return self.getTypedRuleContext(IR2asmParser.Store_regContext,0)
+
+
+        def call(self):
+            return self.getTypedRuleContext(IR2asmParser.CallContext,0)
+
 
         def label(self):
             return self.getTypedRuleContext(IR2asmParser.LabelContext,0)
@@ -380,84 +507,240 @@ class IR2asmParser ( Parser ):
     def instruction(self):
 
         localctx = IR2asmParser.InstructionContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 4, self.RULE_instruction)
+        self.enterRule(localctx, 6, self.RULE_instruction)
         try:
-            self.state = 92
+            self.state = 113
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [IR2asmParser.T__3]:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 78
-                self.label()
+                self.state = 96
+                self.globaladdr()
                 pass
             elif token in [IR2asmParser.T__4]:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 79
-                self.br()
+                self.state = 97
+                self.store_reg()
                 pass
             elif token in [IR2asmParser.T__5]:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 80
-                self.beqz()
+                self.state = 98
+                self.call()
                 pass
             elif token in [IR2asmParser.T__6]:
                 self.enterOuterAlt(localctx, 4)
-                self.state = 81
-                self.bnez()
+                self.state = 99
+                self.label()
                 pass
             elif token in [IR2asmParser.T__7]:
                 self.enterOuterAlt(localctx, 5)
-                self.state = 82
-                self.prologue()
+                self.state = 100
+                self.br()
                 pass
             elif token in [IR2asmParser.T__8]:
                 self.enterOuterAlt(localctx, 6)
-                self.state = 83
-                self.epilogue()
+                self.state = 101
+                self.beqz()
                 pass
             elif token in [IR2asmParser.T__9]:
                 self.enterOuterAlt(localctx, 7)
-                self.state = 84
-                self.frameaddr()
+                self.state = 102
+                self.bnez()
                 pass
             elif token in [IR2asmParser.T__10]:
                 self.enterOuterAlt(localctx, 8)
-                self.state = 85
-                self.load()
+                self.state = 103
+                self.prologue()
                 pass
             elif token in [IR2asmParser.T__11]:
                 self.enterOuterAlt(localctx, 9)
-                self.state = 86
-                self.store()
+                self.state = 104
+                self.epilogue()
                 pass
             elif token in [IR2asmParser.T__12]:
                 self.enterOuterAlt(localctx, 10)
-                self.state = 87
-                self.pop()
+                self.state = 105
+                self.frameaddr()
                 pass
             elif token in [IR2asmParser.T__13]:
                 self.enterOuterAlt(localctx, 11)
-                self.state = 88
-                self.push()
+                self.state = 106
+                self.load()
                 pass
             elif token in [IR2asmParser.T__14]:
                 self.enterOuterAlt(localctx, 12)
-                self.state = 89
+                self.state = 107
+                self.store()
+                pass
+            elif token in [IR2asmParser.T__15]:
+                self.enterOuterAlt(localctx, 13)
+                self.state = 108
+                self.pop()
+                pass
+            elif token in [IR2asmParser.T__16]:
+                self.enterOuterAlt(localctx, 14)
+                self.state = 109
+                self.push()
+                pass
+            elif token in [IR2asmParser.T__17]:
+                self.enterOuterAlt(localctx, 15)
+                self.state = 110
                 self.ret()
                 pass
-            elif token in [IR2asmParser.T__15, IR2asmParser.T__16, IR2asmParser.T__17, IR2asmParser.T__18, IR2asmParser.T__19, IR2asmParser.T__20, IR2asmParser.T__21, IR2asmParser.T__22, IR2asmParser.T__23, IR2asmParser.T__24, IR2asmParser.T__25, IR2asmParser.T__26, IR2asmParser.T__27]:
-                self.enterOuterAlt(localctx, 13)
-                self.state = 90
+            elif token in [IR2asmParser.T__18, IR2asmParser.T__19, IR2asmParser.T__20, IR2asmParser.T__21, IR2asmParser.T__22, IR2asmParser.T__23, IR2asmParser.T__24, IR2asmParser.T__25, IR2asmParser.T__26, IR2asmParser.T__27, IR2asmParser.T__28, IR2asmParser.T__29, IR2asmParser.T__30]:
+                self.enterOuterAlt(localctx, 16)
+                self.state = 111
                 self.two_op()
                 pass
-            elif token in [IR2asmParser.T__28, IR2asmParser.T__29, IR2asmParser.T__30]:
-                self.enterOuterAlt(localctx, 14)
-                self.state = 91
+            elif token in [IR2asmParser.T__31, IR2asmParser.T__32, IR2asmParser.T__33]:
+                self.enterOuterAlt(localctx, 17)
+                self.state = 112
                 self.one_op()
                 pass
             else:
                 raise NoViableAltException(self)
 
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+    class GlobaladdrContext(ParserRuleContext):
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def Identifier(self):
+            return self.getToken(IR2asmParser.Identifier, 0)
+
+        def getRuleIndex(self):
+            return IR2asmParser.RULE_globaladdr
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterGlobaladdr" ):
+                listener.enterGlobaladdr(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitGlobaladdr" ):
+                listener.exitGlobaladdr(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitGlobaladdr" ):
+                return visitor.visitGlobaladdr(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def globaladdr(self):
+
+        localctx = IR2asmParser.GlobaladdrContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 8, self.RULE_globaladdr)
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 115
+            self.match(IR2asmParser.T__3)
+            self.state = 116
+            self.match(IR2asmParser.Identifier)
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+    class Store_regContext(ParserRuleContext):
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def Identifier(self):
+            return self.getToken(IR2asmParser.Identifier, 0)
+
+        def getRuleIndex(self):
+            return IR2asmParser.RULE_store_reg
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterStore_reg" ):
+                listener.enterStore_reg(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitStore_reg" ):
+                listener.exitStore_reg(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitStore_reg" ):
+                return visitor.visitStore_reg(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def store_reg(self):
+
+        localctx = IR2asmParser.Store_regContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 10, self.RULE_store_reg)
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 118
+            self.match(IR2asmParser.T__4)
+            self.state = 119
+            self.match(IR2asmParser.Identifier)
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+    class CallContext(ParserRuleContext):
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def Identifier(self):
+            return self.getToken(IR2asmParser.Identifier, 0)
+
+        def getRuleIndex(self):
+            return IR2asmParser.RULE_call
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterCall" ):
+                listener.enterCall(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitCall" ):
+                listener.exitCall(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitCall" ):
+                return visitor.visitCall(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def call(self):
+
+        localctx = IR2asmParser.CallContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 12, self.RULE_call)
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 121
+            self.match(IR2asmParser.T__5)
+            self.state = 122
+            self.match(IR2asmParser.Identifier)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -498,12 +781,12 @@ class IR2asmParser ( Parser ):
     def label(self):
 
         localctx = IR2asmParser.LabelContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 6, self.RULE_label)
+        self.enterRule(localctx, 14, self.RULE_label)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 94
-            self.match(IR2asmParser.T__3)
-            self.state = 95
+            self.state = 124
+            self.match(IR2asmParser.T__6)
+            self.state = 125
             self.match(IR2asmParser.Identifier)
         except RecognitionException as re:
             localctx.exception = re
@@ -545,12 +828,12 @@ class IR2asmParser ( Parser ):
     def br(self):
 
         localctx = IR2asmParser.BrContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 8, self.RULE_br)
+        self.enterRule(localctx, 16, self.RULE_br)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 97
-            self.match(IR2asmParser.T__4)
-            self.state = 98
+            self.state = 127
+            self.match(IR2asmParser.T__7)
+            self.state = 128
             self.match(IR2asmParser.Identifier)
         except RecognitionException as re:
             localctx.exception = re
@@ -592,12 +875,12 @@ class IR2asmParser ( Parser ):
     def beqz(self):
 
         localctx = IR2asmParser.BeqzContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 10, self.RULE_beqz)
+        self.enterRule(localctx, 18, self.RULE_beqz)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 100
-            self.match(IR2asmParser.T__5)
-            self.state = 101
+            self.state = 130
+            self.match(IR2asmParser.T__8)
+            self.state = 131
             self.match(IR2asmParser.Identifier)
         except RecognitionException as re:
             localctx.exception = re
@@ -639,12 +922,12 @@ class IR2asmParser ( Parser ):
     def bnez(self):
 
         localctx = IR2asmParser.BnezContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 12, self.RULE_bnez)
+        self.enterRule(localctx, 20, self.RULE_bnez)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 103
-            self.match(IR2asmParser.T__6)
-            self.state = 104
+            self.state = 133
+            self.match(IR2asmParser.T__9)
+            self.state = 134
             self.match(IR2asmParser.Identifier)
         except RecognitionException as re:
             localctx.exception = re
@@ -686,12 +969,12 @@ class IR2asmParser ( Parser ):
     def prologue(self):
 
         localctx = IR2asmParser.PrologueContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 14, self.RULE_prologue)
+        self.enterRule(localctx, 22, self.RULE_prologue)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 106
-            self.match(IR2asmParser.T__7)
-            self.state = 107
+            self.state = 136
+            self.match(IR2asmParser.T__10)
+            self.state = 137
             self.match(IR2asmParser.Integer)
         except RecognitionException as re:
             localctx.exception = re
@@ -733,12 +1016,12 @@ class IR2asmParser ( Parser ):
     def epilogue(self):
 
         localctx = IR2asmParser.EpilogueContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 16, self.RULE_epilogue)
+        self.enterRule(localctx, 24, self.RULE_epilogue)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 109
-            self.match(IR2asmParser.T__8)
-            self.state = 110
+            self.state = 139
+            self.match(IR2asmParser.T__11)
+            self.state = 140
             self.match(IR2asmParser.Integer)
         except RecognitionException as re:
             localctx.exception = re
@@ -780,12 +1063,12 @@ class IR2asmParser ( Parser ):
     def frameaddr(self):
 
         localctx = IR2asmParser.FrameaddrContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 18, self.RULE_frameaddr)
+        self.enterRule(localctx, 26, self.RULE_frameaddr)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 112
-            self.match(IR2asmParser.T__9)
-            self.state = 113
+            self.state = 142
+            self.match(IR2asmParser.T__12)
+            self.state = 143
             self.match(IR2asmParser.Integer)
         except RecognitionException as re:
             localctx.exception = re
@@ -825,11 +1108,11 @@ class IR2asmParser ( Parser ):
     def load(self):
 
         localctx = IR2asmParser.LoadContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 20, self.RULE_load)
+        self.enterRule(localctx, 28, self.RULE_load)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 115
-            self.match(IR2asmParser.T__10)
+            self.state = 145
+            self.match(IR2asmParser.T__13)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -868,11 +1151,11 @@ class IR2asmParser ( Parser ):
     def store(self):
 
         localctx = IR2asmParser.StoreContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 22, self.RULE_store)
+        self.enterRule(localctx, 30, self.RULE_store)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 117
-            self.match(IR2asmParser.T__11)
+            self.state = 147
+            self.match(IR2asmParser.T__14)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -911,11 +1194,11 @@ class IR2asmParser ( Parser ):
     def pop(self):
 
         localctx = IR2asmParser.PopContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 24, self.RULE_pop)
+        self.enterRule(localctx, 32, self.RULE_pop)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 119
-            self.match(IR2asmParser.T__12)
+            self.state = 149
+            self.match(IR2asmParser.T__15)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -956,12 +1239,12 @@ class IR2asmParser ( Parser ):
     def push(self):
 
         localctx = IR2asmParser.PushContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 26, self.RULE_push)
+        self.enterRule(localctx, 34, self.RULE_push)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 121
-            self.match(IR2asmParser.T__13)
-            self.state = 122
+            self.state = 151
+            self.match(IR2asmParser.T__16)
+            self.state = 152
             self.match(IR2asmParser.Integer)
         except RecognitionException as re:
             localctx.exception = re
@@ -1001,11 +1284,11 @@ class IR2asmParser ( Parser ):
     def ret(self):
 
         localctx = IR2asmParser.RetContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 28, self.RULE_ret)
+        self.enterRule(localctx, 36, self.RULE_ret)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 124
-            self.match(IR2asmParser.T__14)
+            self.state = 154
+            self.match(IR2asmParser.T__17)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1095,74 +1378,74 @@ class IR2asmParser ( Parser ):
     def two_op(self):
 
         localctx = IR2asmParser.Two_opContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 30, self.RULE_two_op)
+        self.enterRule(localctx, 38, self.RULE_two_op)
         try:
-            self.state = 139
+            self.state = 169
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [IR2asmParser.T__15]:
+            if token in [IR2asmParser.T__18]:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 126
+                self.state = 156
                 self.lor()
                 pass
-            elif token in [IR2asmParser.T__16]:
+            elif token in [IR2asmParser.T__19]:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 127
+                self.state = 157
                 self.land()
                 pass
-            elif token in [IR2asmParser.T__17]:
+            elif token in [IR2asmParser.T__20]:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 128
+                self.state = 158
                 self.eq()
                 pass
-            elif token in [IR2asmParser.T__18]:
+            elif token in [IR2asmParser.T__21]:
                 self.enterOuterAlt(localctx, 4)
-                self.state = 129
+                self.state = 159
                 self.ne()
                 pass
-            elif token in [IR2asmParser.T__19]:
+            elif token in [IR2asmParser.T__22]:
                 self.enterOuterAlt(localctx, 5)
-                self.state = 130
+                self.state = 160
                 self.lt()
                 pass
-            elif token in [IR2asmParser.T__20]:
+            elif token in [IR2asmParser.T__23]:
                 self.enterOuterAlt(localctx, 6)
-                self.state = 131
+                self.state = 161
                 self.gt()
                 pass
-            elif token in [IR2asmParser.T__21]:
+            elif token in [IR2asmParser.T__24]:
                 self.enterOuterAlt(localctx, 7)
-                self.state = 132
+                self.state = 162
                 self.le()
                 pass
-            elif token in [IR2asmParser.T__22]:
+            elif token in [IR2asmParser.T__25]:
                 self.enterOuterAlt(localctx, 8)
-                self.state = 133
+                self.state = 163
                 self.ge()
                 pass
-            elif token in [IR2asmParser.T__23]:
+            elif token in [IR2asmParser.T__26]:
                 self.enterOuterAlt(localctx, 9)
-                self.state = 134
+                self.state = 164
                 self.add()
                 pass
-            elif token in [IR2asmParser.T__24]:
+            elif token in [IR2asmParser.T__27]:
                 self.enterOuterAlt(localctx, 10)
-                self.state = 135
+                self.state = 165
                 self.sub()
                 pass
-            elif token in [IR2asmParser.T__25]:
+            elif token in [IR2asmParser.T__28]:
                 self.enterOuterAlt(localctx, 11)
-                self.state = 136
+                self.state = 166
                 self.mul()
                 pass
-            elif token in [IR2asmParser.T__26]:
+            elif token in [IR2asmParser.T__29]:
                 self.enterOuterAlt(localctx, 12)
-                self.state = 137
+                self.state = 167
                 self.div()
                 pass
-            elif token in [IR2asmParser.T__27]:
+            elif token in [IR2asmParser.T__30]:
                 self.enterOuterAlt(localctx, 13)
-                self.state = 138
+                self.state = 168
                 self.rem()
                 pass
             else:
@@ -1217,24 +1500,24 @@ class IR2asmParser ( Parser ):
     def one_op(self):
 
         localctx = IR2asmParser.One_opContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 32, self.RULE_one_op)
+        self.enterRule(localctx, 40, self.RULE_one_op)
         try:
-            self.state = 144
+            self.state = 174
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [IR2asmParser.T__28]:
+            if token in [IR2asmParser.T__31]:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 141
+                self.state = 171
                 self.neg()
                 pass
-            elif token in [IR2asmParser.T__29]:
+            elif token in [IR2asmParser.T__32]:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 142
+                self.state = 172
                 self.bitwise()
                 pass
-            elif token in [IR2asmParser.T__30]:
+            elif token in [IR2asmParser.T__33]:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 143
+                self.state = 173
                 self.lnot()
                 pass
             else:
@@ -1278,11 +1561,11 @@ class IR2asmParser ( Parser ):
     def lor(self):
 
         localctx = IR2asmParser.LorContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 34, self.RULE_lor)
+        self.enterRule(localctx, 42, self.RULE_lor)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 146
-            self.match(IR2asmParser.T__15)
+            self.state = 176
+            self.match(IR2asmParser.T__18)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1321,11 +1604,11 @@ class IR2asmParser ( Parser ):
     def land(self):
 
         localctx = IR2asmParser.LandContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 36, self.RULE_land)
+        self.enterRule(localctx, 44, self.RULE_land)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 148
-            self.match(IR2asmParser.T__16)
+            self.state = 178
+            self.match(IR2asmParser.T__19)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1364,11 +1647,11 @@ class IR2asmParser ( Parser ):
     def eq(self):
 
         localctx = IR2asmParser.EqContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 38, self.RULE_eq)
+        self.enterRule(localctx, 46, self.RULE_eq)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 150
-            self.match(IR2asmParser.T__17)
+            self.state = 180
+            self.match(IR2asmParser.T__20)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1407,11 +1690,11 @@ class IR2asmParser ( Parser ):
     def ne(self):
 
         localctx = IR2asmParser.NeContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 40, self.RULE_ne)
+        self.enterRule(localctx, 48, self.RULE_ne)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 152
-            self.match(IR2asmParser.T__18)
+            self.state = 182
+            self.match(IR2asmParser.T__21)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1450,11 +1733,11 @@ class IR2asmParser ( Parser ):
     def lt(self):
 
         localctx = IR2asmParser.LtContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 42, self.RULE_lt)
+        self.enterRule(localctx, 50, self.RULE_lt)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 154
-            self.match(IR2asmParser.T__19)
+            self.state = 184
+            self.match(IR2asmParser.T__22)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1493,11 +1776,11 @@ class IR2asmParser ( Parser ):
     def gt(self):
 
         localctx = IR2asmParser.GtContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 44, self.RULE_gt)
+        self.enterRule(localctx, 52, self.RULE_gt)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 156
-            self.match(IR2asmParser.T__20)
+            self.state = 186
+            self.match(IR2asmParser.T__23)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1536,11 +1819,11 @@ class IR2asmParser ( Parser ):
     def le(self):
 
         localctx = IR2asmParser.LeContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 46, self.RULE_le)
+        self.enterRule(localctx, 54, self.RULE_le)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 158
-            self.match(IR2asmParser.T__21)
+            self.state = 188
+            self.match(IR2asmParser.T__24)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1579,11 +1862,11 @@ class IR2asmParser ( Parser ):
     def ge(self):
 
         localctx = IR2asmParser.GeContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 48, self.RULE_ge)
+        self.enterRule(localctx, 56, self.RULE_ge)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 160
-            self.match(IR2asmParser.T__22)
+            self.state = 190
+            self.match(IR2asmParser.T__25)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1622,11 +1905,11 @@ class IR2asmParser ( Parser ):
     def add(self):
 
         localctx = IR2asmParser.AddContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 50, self.RULE_add)
+        self.enterRule(localctx, 58, self.RULE_add)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 162
-            self.match(IR2asmParser.T__23)
+            self.state = 192
+            self.match(IR2asmParser.T__26)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1665,11 +1948,11 @@ class IR2asmParser ( Parser ):
     def sub(self):
 
         localctx = IR2asmParser.SubContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 52, self.RULE_sub)
+        self.enterRule(localctx, 60, self.RULE_sub)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 164
-            self.match(IR2asmParser.T__24)
+            self.state = 194
+            self.match(IR2asmParser.T__27)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1708,11 +1991,11 @@ class IR2asmParser ( Parser ):
     def mul(self):
 
         localctx = IR2asmParser.MulContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 54, self.RULE_mul)
+        self.enterRule(localctx, 62, self.RULE_mul)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 166
-            self.match(IR2asmParser.T__25)
+            self.state = 196
+            self.match(IR2asmParser.T__28)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1751,11 +2034,11 @@ class IR2asmParser ( Parser ):
     def div(self):
 
         localctx = IR2asmParser.DivContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 56, self.RULE_div)
+        self.enterRule(localctx, 64, self.RULE_div)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 168
-            self.match(IR2asmParser.T__26)
+            self.state = 198
+            self.match(IR2asmParser.T__29)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1794,11 +2077,11 @@ class IR2asmParser ( Parser ):
     def rem(self):
 
         localctx = IR2asmParser.RemContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 58, self.RULE_rem)
+        self.enterRule(localctx, 66, self.RULE_rem)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 170
-            self.match(IR2asmParser.T__27)
+            self.state = 200
+            self.match(IR2asmParser.T__30)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1837,11 +2120,11 @@ class IR2asmParser ( Parser ):
     def neg(self):
 
         localctx = IR2asmParser.NegContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 60, self.RULE_neg)
+        self.enterRule(localctx, 68, self.RULE_neg)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 172
-            self.match(IR2asmParser.T__28)
+            self.state = 202
+            self.match(IR2asmParser.T__31)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1880,11 +2163,11 @@ class IR2asmParser ( Parser ):
     def bitwise(self):
 
         localctx = IR2asmParser.BitwiseContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 62, self.RULE_bitwise)
+        self.enterRule(localctx, 70, self.RULE_bitwise)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 174
-            self.match(IR2asmParser.T__29)
+            self.state = 204
+            self.match(IR2asmParser.T__32)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1923,11 +2206,11 @@ class IR2asmParser ( Parser ):
     def lnot(self):
 
         localctx = IR2asmParser.LnotContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 64, self.RULE_lnot)
+        self.enterRule(localctx, 72, self.RULE_lnot)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 176
-            self.match(IR2asmParser.T__30)
+            self.state = 206
+            self.match(IR2asmParser.T__33)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)

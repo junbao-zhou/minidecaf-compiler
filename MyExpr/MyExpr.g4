@@ -2,14 +2,25 @@ grammar MyExpr;
 
 import MyExprLex;
 
-int_type: 'int';
+type_t: 'int';
 
-program: main_fun;
+program: (function | global_declaration)* EOF;
 
-main_fun:
-	int_type 'main' '(' parameter* ')' compound_statement EOF;
+global_declaration: type_t Identifier ('=' Integer)? ';';
 
-compound_statement: '{' block_item* '}';
+parameter_list: (type_t Identifier (',' type_t Identifier)*)?;
+
+function:
+	type_t Identifier '(' parameter_list ')' (
+		func_compound_statement
+		| ';'
+	);
+
+block_items: '{' block_item* '}';
+
+func_compound_statement: block_items;
+
+compound_statement: block_items;
 
 block_item: statement | declaration;
 
@@ -27,7 +38,7 @@ statement:
 	| 'break' ';'									# stat_break
 	| 'continue' ';'								# stat_continue;
 
-declaration: int_type Identifier ('=' expression)? ';';
+declaration: type_t Identifier ('=' expression)? ';';
 
 return_stat: 'return' expression ';';
 
@@ -66,12 +77,17 @@ multiplicative:
 	| multiplicative op = ('*' | '/' | '%') unary	# mul_operate;
 
 unary:
-	primary							# unary_none
+	postfix							# unary_none
 	| op = ('-' | '~' | '!') unary	# unary_operate;
+
+postfix:
+	primary									# postfix_none
+	| Identifier '(' expression_list ')'	# postfix_callfunc;
+
+expression_list: (expression (',' expression)*)?;
 
 primary:
 	Integer					# primaryInteger
 	| '(' expression ')'	# primaryParen
 	| Identifier			# primaryIdentifier;
 
-parameter: int_type Identifier;

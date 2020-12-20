@@ -1,3 +1,4 @@
+from os import EX_DATAERR
 from .IR2asmVisitor import IR2asmVisitor
 from .IR2asmParser import IR2asmParser
 
@@ -6,20 +7,57 @@ class IR2asmEvalVisitor(IR2asmVisitor):
 
     # Visit a parse tree produced by IR2asmParser#program.
     def visitProgram(self, ctx: IR2asmParser.ProgramContext):
+        result = ''
+        for var in ctx.global_var():
+            result += var.accept(self)
+        for func in ctx.func():
+            result += func.accept(self)
         return """
-    .text
-    .global main
-""" + ctx.main_fun().accept(self)
+    j main
+""" + result
+
+    def visitGlobal_var(self, ctx: IR2asmParser.Global_varContext):
+        if ctx.Integer() is None:
+            return f"""
+    .comm {ctx.Identifier().getText()},4,4
+"""
+        else:
+            return f"""
+    .data
+    .globl {ctx.Identifier().getText()}
+{ctx.Identifier().getText()}:
+    .word {ctx.Integer().getText()}
+"""
 
     # Visit a parse tree produced by IR2asmParser#main_fun.
-    def visitMain_fun(self, ctx: IR2asmParser.Main_funContext):
-        string = """
-main:
+    def visitFunc(self, ctx: IR2asmParser.FuncContext):
+        string = f"""
+    .text
+    .globl main
+{ctx.Identifier().getText()}:
 """
-        self.function_name = "main"
+        self.function_name = ctx.Identifier().getText()
         for instruct in ctx.instruction():
             string = string + instruct.accept(self)
         return string
+
+    def visitGlobaladdr(self, ctx: IR2asmParser.GlobaladdrContext):
+        return f"""
+    addi sp, sp, -4
+    la t1, {ctx.Identifier().getText()}
+    sw t1, 0(sp)
+"""
+
+    def visitStore_reg(self, ctx: IR2asmParser.Store_regContext):
+        return f"""
+    addi sp, sp, -4
+    sw {ctx.Identifier().getText()}, 0(sp)
+"""
+
+    def visitCall(self, ctx: IR2asmParser.CallContext):
+        return f"""
+    call {ctx.Identifier().getText()}
+"""
 
     def visitInstruction(self, ctx: IR2asmParser.InstructionContext):
         return self.visitChildren(ctx)
@@ -71,6 +109,7 @@ main:
 
     def visitFrameaddr(self, ctx):
         return f"""
+    # FRAMEADDR {ctx.Integer().getText()}
     addi sp, sp, -4
     addi t1, fp, {-12-4*int(ctx.Integer().getText())}
     sw t1, 0(sp)
@@ -78,6 +117,7 @@ main:
 
     def visitLoad(self, ctx):
         return f"""
+    # LOAD
     lw t1, 0(sp)
     lw t1, 0(t1)
     sw t1, 0(sp)
@@ -85,6 +125,7 @@ main:
 
     def visitStore(self, ctx):
         return f"""
+    # STORE
     lw t1, 4(sp)
     lw t2, 0(sp)
     addi sp, sp, 4

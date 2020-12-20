@@ -9,8 +9,8 @@ else:
 
 class MyExprVisitor(ParseTreeVisitor):
 
-    # Visit a parse tree produced by MyExprParser#int_type.
-    def visitInt_type(self, ctx:MyExprParser.Int_typeContext):
+    # Visit a parse tree produced by MyExprParser#type_t.
+    def visitType_t(self, ctx:MyExprParser.Type_tContext):
         return self.visitChildren(ctx)
 
 
@@ -19,8 +19,28 @@ class MyExprVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by MyExprParser#main_fun.
-    def visitMain_fun(self, ctx:MyExprParser.Main_funContext):
+    # Visit a parse tree produced by MyExprParser#global_declaration.
+    def visitGlobal_declaration(self, ctx:MyExprParser.Global_declarationContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MyExprParser#parameter_list.
+    def visitParameter_list(self, ctx:MyExprParser.Parameter_listContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MyExprParser#function.
+    def visitFunction(self, ctx:MyExprParser.FunctionContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MyExprParser#block_items.
+    def visitBlock_items(self, ctx:MyExprParser.Block_itemsContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MyExprParser#func_compound_statement.
+    def visitFunc_compound_statement(self, ctx:MyExprParser.Func_compound_statementContext):
         return self.visitChildren(ctx)
 
 
@@ -189,6 +209,21 @@ class MyExprVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by MyExprParser#postfix_none.
+    def visitPostfix_none(self, ctx:MyExprParser.Postfix_noneContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MyExprParser#postfix_callfunc.
+    def visitPostfix_callfunc(self, ctx:MyExprParser.Postfix_callfuncContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MyExprParser#expression_list.
+    def visitExpression_list(self, ctx:MyExprParser.Expression_listContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by MyExprParser#primaryInteger.
     def visitPrimaryInteger(self, ctx:MyExprParser.PrimaryIntegerContext):
         return self.visitChildren(ctx)
@@ -201,11 +236,6 @@ class MyExprVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by MyExprParser#primaryIdentifier.
     def visitPrimaryIdentifier(self, ctx:MyExprParser.PrimaryIdentifierContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by MyExprParser#parameter.
-    def visitParameter(self, ctx:MyExprParser.ParameterContext):
         return self.visitChildren(ctx)
 
 

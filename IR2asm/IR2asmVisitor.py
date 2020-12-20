@@ -14,13 +14,33 @@ class IR2asmVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by IR2asmParser#main_fun.
-    def visitMain_fun(self, ctx:IR2asmParser.Main_funContext):
+    # Visit a parse tree produced by IR2asmParser#global_var.
+    def visitGlobal_var(self, ctx:IR2asmParser.Global_varContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by IR2asmParser#func.
+    def visitFunc(self, ctx:IR2asmParser.FuncContext):
         return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by IR2asmParser#instruction.
     def visitInstruction(self, ctx:IR2asmParser.InstructionContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by IR2asmParser#globaladdr.
+    def visitGlobaladdr(self, ctx:IR2asmParser.GlobaladdrContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by IR2asmParser#store_reg.
+    def visitStore_reg(self, ctx:IR2asmParser.Store_regContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by IR2asmParser#call.
+    def visitCall(self, ctx:IR2asmParser.CallContext):
         return self.visitChildren(ctx)
 
 

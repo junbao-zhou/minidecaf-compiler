@@ -8,12 +8,12 @@ else:
 # This class defines a complete listener for a parse tree produced by MyExprParser.
 class MyExprListener(ParseTreeListener):
 
-    # Enter a parse tree produced by MyExprParser#int_type.
-    def enterInt_type(self, ctx:MyExprParser.Int_typeContext):
+    # Enter a parse tree produced by MyExprParser#type_t.
+    def enterType_t(self, ctx:MyExprParser.Type_tContext):
         pass
 
-    # Exit a parse tree produced by MyExprParser#int_type.
-    def exitInt_type(self, ctx:MyExprParser.Int_typeContext):
+    # Exit a parse tree produced by MyExprParser#type_t.
+    def exitType_t(self, ctx:MyExprParser.Type_tContext):
         pass
 
 
@@ -26,12 +26,48 @@ class MyExprListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by MyExprParser#main_fun.
-    def enterMain_fun(self, ctx:MyExprParser.Main_funContext):
+    # Enter a parse tree produced by MyExprParser#global_declaration.
+    def enterGlobal_declaration(self, ctx:MyExprParser.Global_declarationContext):
         pass
 
-    # Exit a parse tree produced by MyExprParser#main_fun.
-    def exitMain_fun(self, ctx:MyExprParser.Main_funContext):
+    # Exit a parse tree produced by MyExprParser#global_declaration.
+    def exitGlobal_declaration(self, ctx:MyExprParser.Global_declarationContext):
+        pass
+
+
+    # Enter a parse tree produced by MyExprParser#parameter_list.
+    def enterParameter_list(self, ctx:MyExprParser.Parameter_listContext):
+        pass
+
+    # Exit a parse tree produced by MyExprParser#parameter_list.
+    def exitParameter_list(self, ctx:MyExprParser.Parameter_listContext):
+        pass
+
+
+    # Enter a parse tree produced by MyExprParser#function.
+    def enterFunction(self, ctx:MyExprParser.FunctionContext):
+        pass
+
+    # Exit a parse tree produced by MyExprParser#function.
+    def exitFunction(self, ctx:MyExprParser.FunctionContext):
+        pass
+
+
+    # Enter a parse tree produced by MyExprParser#block_items.
+    def enterBlock_items(self, ctx:MyExprParser.Block_itemsContext):
+        pass
+
+    # Exit a parse tree produced by MyExprParser#block_items.
+    def exitBlock_items(self, ctx:MyExprParser.Block_itemsContext):
+        pass
+
+
+    # Enter a parse tree produced by MyExprParser#func_compound_statement.
+    def enterFunc_compound_statement(self, ctx:MyExprParser.Func_compound_statementContext):
+        pass
+
+    # Exit a parse tree produced by MyExprParser#func_compound_statement.
+    def exitFunc_compound_statement(self, ctx:MyExprParser.Func_compound_statementContext):
         pass
 
 
@@ -332,6 +368,33 @@ class MyExprListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by MyExprParser#postfix_none.
+    def enterPostfix_none(self, ctx:MyExprParser.Postfix_noneContext):
+        pass
+
+    # Exit a parse tree produced by MyExprParser#postfix_none.
+    def exitPostfix_none(self, ctx:MyExprParser.Postfix_noneContext):
+        pass
+
+
+    # Enter a parse tree produced by MyExprParser#postfix_callfunc.
+    def enterPostfix_callfunc(self, ctx:MyExprParser.Postfix_callfuncContext):
+        pass
+
+    # Exit a parse tree produced by MyExprParser#postfix_callfunc.
+    def exitPostfix_callfunc(self, ctx:MyExprParser.Postfix_callfuncContext):
+        pass
+
+
+    # Enter a parse tree produced by MyExprParser#expression_list.
+    def enterExpression_list(self, ctx:MyExprParser.Expression_listContext):
+        pass
+
+    # Exit a parse tree produced by MyExprParser#expression_list.
+    def exitExpression_list(self, ctx:MyExprParser.Expression_listContext):
+        pass
+
+
     # Enter a parse tree produced by MyExprParser#primaryInteger.
     def enterPrimaryInteger(self, ctx:MyExprParser.PrimaryIntegerContext):
         pass
@@ -356,15 +419,6 @@ class MyExprListener(ParseTreeListener):
 
     # Exit a parse tree produced by MyExprParser#primaryIdentifier.
     def exitPrimaryIdentifier(self, ctx:MyExprParser.PrimaryIdentifierContext):
-        pass
-
-
-    # Enter a parse tree produced by MyExprParser#parameter.
-    def enterParameter(self, ctx:MyExprParser.ParameterContext):
-        pass
-
-    # Exit a parse tree produced by MyExprParser#parameter.
-    def exitParameter(self, ctx:MyExprParser.ParameterContext):
         pass
 
 
