@@ -8,12 +8,21 @@ else:
 # This class defines a complete listener for a parse tree produced by MyExprParser.
 class MyExprListener(ParseTreeListener):
 
-    # Enter a parse tree produced by MyExprParser#type_t.
-    def enterType_t(self, ctx:MyExprParser.Type_tContext):
+    # Enter a parse tree produced by MyExprParser#type_ptr.
+    def enterType_ptr(self, ctx:MyExprParser.Type_ptrContext):
         pass
 
-    # Exit a parse tree produced by MyExprParser#type_t.
-    def exitType_t(self, ctx:MyExprParser.Type_tContext):
+    # Exit a parse tree produced by MyExprParser#type_ptr.
+    def exitType_ptr(self, ctx:MyExprParser.Type_ptrContext):
+        pass
+
+
+    # Enter a parse tree produced by MyExprParser#type_int.
+    def enterType_int(self, ctx:MyExprParser.Type_intContext):
+        pass
+
+    # Exit a parse tree produced by MyExprParser#type_int.
+    def exitType_int(self, ctx:MyExprParser.Type_intContext):
         pass
 
 
@@ -179,6 +188,15 @@ class MyExprListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by MyExprParser#declaration_expr.
+    def enterDeclaration_expr(self, ctx:MyExprParser.Declaration_exprContext):
+        pass
+
+    # Exit a parse tree produced by MyExprParser#declaration_expr.
+    def exitDeclaration_expr(self, ctx:MyExprParser.Declaration_exprContext):
+        pass
+
+
     # Enter a parse tree produced by MyExprParser#declaration.
     def enterDeclaration(self, ctx:MyExprParser.DeclarationContext):
         pass
@@ -194,6 +212,15 @@ class MyExprListener(ParseTreeListener):
 
     # Exit a parse tree produced by MyExprParser#return_stat.
     def exitReturn_stat(self, ctx:MyExprParser.Return_statContext):
+        pass
+
+
+    # Enter a parse tree produced by MyExprParser#condition_expression.
+    def enterCondition_expression(self, ctx:MyExprParser.Condition_expressionContext):
+        pass
+
+    # Exit a parse tree produced by MyExprParser#condition_expression.
+    def exitCondition_expression(self, ctx:MyExprParser.Condition_expressionContext):
         pass
 
 
@@ -365,6 +392,15 @@ class MyExprListener(ParseTreeListener):
 
     # Exit a parse tree produced by MyExprParser#unary_operate.
     def exitUnary_operate(self, ctx:MyExprParser.Unary_operateContext):
+        pass
+
+
+    # Enter a parse tree produced by MyExprParser#unary_cast.
+    def enterUnary_cast(self, ctx:MyExprParser.Unary_castContext):
+        pass
+
+    # Exit a parse tree produced by MyExprParser#unary_cast.
+    def exitUnary_cast(self, ctx:MyExprParser.Unary_castContext):
         pass
 
 

@@ -9,8 +9,13 @@ else:
 
 class MyExprVisitor(ParseTreeVisitor):
 
-    # Visit a parse tree produced by MyExprParser#type_t.
-    def visitType_t(self, ctx:MyExprParser.Type_tContext):
+    # Visit a parse tree produced by MyExprParser#type_ptr.
+    def visitType_ptr(self, ctx:MyExprParser.Type_ptrContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MyExprParser#type_int.
+    def visitType_int(self, ctx:MyExprParser.Type_intContext):
         return self.visitChildren(ctx)
 
 
@@ -104,6 +109,11 @@ class MyExprVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by MyExprParser#declaration_expr.
+    def visitDeclaration_expr(self, ctx:MyExprParser.Declaration_exprContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by MyExprParser#declaration.
     def visitDeclaration(self, ctx:MyExprParser.DeclarationContext):
         return self.visitChildren(ctx)
@@ -111,6 +121,11 @@ class MyExprVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by MyExprParser#return_stat.
     def visitReturn_stat(self, ctx:MyExprParser.Return_statContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MyExprParser#condition_expression.
+    def visitCondition_expression(self, ctx:MyExprParser.Condition_expressionContext):
         return self.visitChildren(ctx)
 
 
@@ -206,6 +221,11 @@ class MyExprVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by MyExprParser#unary_operate.
     def visitUnary_operate(self, ctx:MyExprParser.Unary_operateContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by MyExprParser#unary_cast.
+    def visitUnary_cast(self, ctx:MyExprParser.Unary_castContext):
         return self.visitChildren(ctx)
 
 

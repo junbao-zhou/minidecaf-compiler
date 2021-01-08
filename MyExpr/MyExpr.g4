@@ -2,7 +2,7 @@ grammar MyExpr;
 
 import MyExprLex;
 
-type_t: 'int';
+type_t: 'int' # type_int | type_t '*' # type_ptr;
 
 program: (function | global_declaration)* EOF;
 
@@ -25,28 +25,34 @@ compound_statement: block_items;
 block_item: statement | declaration;
 
 statement:
-	return_stat												# stat_ret
-	| expression? ';'										# stat_expr
-	| 'if' '(' expression ')' statement ('else' statement)?	# stat_condition
-	| compound_statement									# stat_compound
-	| 'for' '(' pre_expr = expression? ';' cond_expr = expression? ';' post_expr = expression? ')'
-		statement																				# stat_for_loop_no_declr
-	| 'for' '(' declaration cond_expr = expression? ';' post_expr = expression? ')' statement	#
-		stat_for_loop_declr
-	| 'while' '(' expression ')' statement			# stat_while_loop
-	| 'do' statement 'while' '(' expression ')' ';'	# stat_do_loop
-	| 'break' ';'									# stat_break
-	| 'continue' ';'								# stat_continue;
+	return_stat			# stat_ret
+	| expression? ';'	# stat_expr
+	| 'if' '(' condition_expression ')' statement (
+		'else' statement
+	)?						# stat_condition
+	| compound_statement	# stat_compound
+	| 'for' '(' pre_expr = expression? ';' cond_expr = condition_expression? ';' post_expr =
+		expression? ')' statement # stat_for_loop_no_declr
+	| 'for' '(' declaration_expr ';' cond_expr = condition_expression? ';' post_expr = expression?
+		')' statement											# stat_for_loop_declr
+	| 'while' '(' condition_expression ')' statement			# stat_while_loop
+	| 'do' statement 'while' '(' condition_expression ')' ';'	# stat_do_loop
+	| 'break' ';'												# stat_break
+	| 'continue' ';'											# stat_continue;
 
-declaration: type_t Identifier ('=' expression)? ';';
+declaration_expr: type_t Identifier ('=' expression)?;
+
+declaration: declaration_expr ';';
 
 return_stat: 'return' expression ';';
+
+condition_expression: expression;
 
 expression: assignment;
 
 assignment:
-	conditional					# assign_none
-	| Identifier '=' expression	# assign;
+	conditional				# assign_none
+	| unary '=' expression	# assign;
 
 conditional:
 	logical_or									# condition_none
@@ -77,8 +83,9 @@ multiplicative:
 	| multiplicative op = ('*' | '/' | '%') unary	# mul_operate;
 
 unary:
-	postfix							# unary_none
-	| op = ('-' | '~' | '!') unary	# unary_operate;
+	postfix										# unary_none
+	| op = ('-' | '~' | '!' | '&' | '*') unary	# unary_operate
+	| '(' type_t ')' unary						# unary_cast;
 
 postfix:
 	primary									# postfix_none
